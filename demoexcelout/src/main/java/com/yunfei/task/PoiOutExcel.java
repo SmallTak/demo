@@ -1,44 +1,41 @@
-package com.yunfei;
+package com.yunfei.task;
 
-import com.yunfei.entity.*;
+import com.yunfei.entity.Excel;
+import com.yunfei.entity.ExcelExample;
+import com.yunfei.entity.Provinces;
+import com.yunfei.entity.ProvincesExample;
 import com.yunfei.mapper.ExcelMapper;
 import com.yunfei.mapper.ProvincesMapper;
 import org.apache.poi.hssf.usermodel.*;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
-import sun.text.resources.FormatData;
+import org.springframework.stereotype.Component;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 /**
  * @description:
  * @author:
- * @date: 2019-12-25 14:45
+ * @date: 2019-12-26 10:18
  */
-@RunWith(SpringRunner.class)
-@SpringBootTest(classes = { ExcelDownLoadApplication.class }) // 指定启动类
-public class PoiTest {
-
+@Component
+public class PoiOutExcel {
     @Autowired
     private ExcelMapper excelMapper;
     @Autowired
     private ProvincesMapper provincesMapper;
 
     @Test
-    public void poiTest() throws IOException {
+    public void excel() throws IOException {
 
         //设置导出Excel信息
         HSSFWorkbook workbook = new HSSFWorkbook();          // 创建workbook
         HSSFSheet sheet = workbook.createSheet("count");   // 创建sheet, 并设置sheet名
-        String fileName = "E:\\count.xls";                   // 导出Excel文件名与路径
+        String fileName = "E:count.xls";                   // 导出Excel文件名与路径
         String[] headers ={"行政区域", "区县名称", "各地上报数量"};    // Excel中表头
 
         //字体样式
@@ -56,7 +53,7 @@ public class PoiTest {
         font2.setFontHeightInPoints((short) 11);  //字体大小
         style.setFont(font2);//选择需要用到的字体格式
 
-        //查询出数据库中需要导出的数据
+        //查询出数据库中需要导出的数据,若数据排序为无序，则可以先进行分组，再加循环有if逐个输出
 //        ExcelExample excelExample1 = new ExcelExample();
 //        excelExample1.createCriteria().andCodeBeforeEqualTo(Integer.valueOf(Province.HN));
         List<Excel> excels = excelMapper.selectByExample(new ExcelExample());
@@ -97,17 +94,8 @@ public class PoiTest {
         }
         //输出文件到本地
         File file = new File(fileName);
-        FileOutputStream fout = new FileOutputStream(file);
+        FileOutputStream  fout = new FileOutputStream(file);
         workbook.write(fout);
         fout.close();
     }
-
-    @Test
-    public void getProvinceName(){
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
-
-        System.out.println(dateFormat.format(new Date(System.currentTimeMillis())));
-
-    }
-
 }

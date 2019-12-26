@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
+import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -14,31 +16,37 @@ import java.util.Date;
  */
 @Component
 public class SendEamil {
+
     @Autowired
     private EmailUtil util;
 
-    @Scheduled(cron = "0 */10 * * * ?")
-    public void sendEamil(){
-        System.out.println("开始发送~~" + System.currentTimeMillis());
-        util.sendSimpleMail("1048388981@qq.com", "hey","hi");
+    @Autowired
+    private PoiOutExcel poiOutExcel;
+
+//    @Scheduled(cron = "0 */10 * * * ?")
+//    public void sendEamil(){
+//        System.out.println("开始发送~~" + System.currentTimeMillis());
+//        util.sendSimpleMail("1048388981@qq.com", "hey","hi");
+//
+//    }
+
+    @Scheduled(cron = "0 35 10 ? * *")
+    public void selectData(){
+        System.out.println("开始查询数据");
+        try {
+            poiOutExcel.excel();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
-    @Scheduled(cron = "0 */10 * * * ?")
-    public void sendEamil1(){
-        System.out.println("开始发送~~" + System.currentTimeMillis());
-        util.sendSimpleMail("hdysimple@163.com", "hey","hi");
-    }
-
-    @Scheduled(cron = "59 * * * * ? ")
+    @Scheduled(cron = "0 50 10 ? * * ")
     public void sendAttachment(){
         String filePath = "E:\\count.xls";
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
         System.out.println("开始发送excel" + System.currentTimeMillis());
-        util.sendAttachmentMail("1048388981@qq.com","20191220全国各市数据统计",new Date() + "20191220全国各市数据统计",filePath);
-    }
-    @Scheduled(cron = "59 * * * * ? ")
-    public void test(){
-        System.out.println("开始执行定时任务" + System.currentTimeMillis());
+        util.sendAttachmentMail("zhouyunhui@philisense.com","数据统计",dateFormat.format(new Date(System.currentTimeMillis())) + "全国各市数据统计",filePath);
     }
 
 
