@@ -1,0 +1,1508 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mzb.dmxxk.mapper.TblPlaceAttrinfoMapper">
+  <resultMap id="BaseResultMap" type="com.mzb.dmxxk.entity.TblPlaceAttrinfo">
+    <id column="ID" jdbcType="DECIMAL" property="id" />
+    <result column="place_code" jdbcType="CHAR" property="placeCode" />
+    <result column="standard_name" jdbcType="NVARCHAR" property="standardName" />
+    <result column="original_name" jdbcType="NVARCHAR" property="originalName" />
+    <result column="use_time" jdbcType="NVARCHAR" property="useTime" />
+    <result column="EB_BSM" jdbcType="CHAR" property="ebBsm" />
+    <result column="EB_XZQHDM" jdbcType="CHAR" property="ebXzqhdm" />
+    <result column="EB_PCQ" jdbcType="INTEGER" property="ebPcq" />
+    <result column="roman_alphabet_spelling" jdbcType="NVARCHAR" property="romanAlphabetSpelling" />
+    <result column="ethnic_minorities_writing" jdbcType="NVARCHAR" property="ethnicMinoritiesWriting" />
+    <result column="abbreviations" jdbcType="NVARCHAR" property="abbreviations" />
+    <result column="east_longitude" jdbcType="NVARCHAR" property="eastLongitude" />
+    <result column="north_latitude" jdbcType="NVARCHAR" property="northLatitude" />
+    <result column="to_east_longitude" jdbcType="NVARCHAR" property="toEastLongitude" />
+    <result column="to_north_latitude" jdbcType="NVARCHAR" property="toNorthLatitude" />
+    <result column="scale" jdbcType="NVARCHAR" property="scale" />
+    <result column="coordinates" jdbcType="NVARCHAR" property="coordinates" />
+    <result column="measuring_method" jdbcType="NVARCHAR" property="measuringMethod" />
+    <result column="secret_level" jdbcType="NVARCHAR" property="secretLevel" />
+    <result column="place_type" jdbcType="NVARCHAR" property="placeType" />
+    <result column="registration_time" jdbcType="TIMESTAMP" property="registrationTime" />
+    <result column="registrant" jdbcType="NVARCHAR" property="registrant" />
+    <result column="registrant_unit" jdbcType="NVARCHAR" property="registrantUnit" />
+    <result column="alias" jdbcType="NVARCHAR" property="alias" />
+    <result column="place_original_sound" jdbcType="NVARCHAR" property="placeOriginalSound" />
+    <result column="place_language" jdbcType="NVARCHAR" property="placeLanguage" />
+    <result column="figure_no" jdbcType="NVARCHAR" property="figureNo" />
+    <result column="establishment_year" jdbcType="NVARCHAR" property="establishmentYear" />
+    <result column="abolish_year" jdbcType="NVARCHAR" property="abolishYear" />
+    <result column="rome_spelling" jdbcType="NVARCHAR" property="romeSpelling" />
+    <result column="placement_census_status" jdbcType="NVARCHAR" property="placementCensusStatus" />
+    <result column="chinese_character_writing" jdbcType="NVARCHAR" property="chineseCharacterWriting" />
+    <result column="mandarin_chinese_pronunciation" jdbcType="NVARCHAR" property="mandarinChinesePronunciation" />
+    <result column="data_sources" jdbcType="NVARCHAR" property="dataSources" />
+    <result column="former_name" jdbcType="NVARCHAR" property="formerName" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="cn_administrative_area_id" jdbcType="VARCHAR" property="cnAdministrativeAreaId" />
+    <result column="declare_time" jdbcType="TIMESTAMP" property="declareTime" />
+    <result column="declare_unit" jdbcType="VARCHAR" property="declareUnit" />
+    <result column="declare_unit_address" jdbcType="VARCHAR" property="declareUnitAddress" />
+    <result column="declare_status" jdbcType="NCHAR" property="declareStatus" />
+    <result column="declarer" jdbcType="VARCHAR" property="declarer" />
+    <result column="declare_type" jdbcType="NCHAR" property="declareType" />
+    <result column="declarer_phone" jdbcType="VARCHAR" property="declarerPhone" />
+    <result column="declare_postcode" jdbcType="NCHAR" property="declarePostcode" />
+    <result column="process_instance_id" jdbcType="INTEGER" property="processInstanceId" />
+    <result column="is_show" jdbcType="INTEGER" property="isShow" />
+    <result column="geometry" jdbcType="VARCHAR" property="geometry" />
+    <result column="registranter" jdbcType="VARCHAR" property="registranter" />
+    <result column="administrative_area_name" jdbcType="VARCHAR" property="administrativeAreaName" />
+    <result column="mark" jdbcType="INTEGER" property="mark" />
+    <result column="province" jdbcType="INTEGER" property="province" />
+    <result column="city" jdbcType="INTEGER" property="city" />
+    <result column="area" jdbcType="VARCHAR" property="area" />
+    <result column="place_type_code" jdbcType="VARCHAR" property="placeTypeCode" />
+    <result column="province_name" jdbcType="VARCHAR" property="provinceName" />
+    <result column="city_name" jdbcType="VARCHAR" property="cityName" />
+    <result column="area_name" jdbcType="VARCHAR" property="areaName" />
+    <result column="pinyin" jdbcType="VARCHAR" property="pinyin" />
+    <result column="attachment_information" jdbcType="VARCHAR" property="attachmentInformation" />
+    <result column="file_url" jdbcType="VARCHAR" property="fileUrl" />
+    <result column="lon" jdbcType="NVARCHAR" property="lon" />
+    <result column="to_lon" jdbcType="NVARCHAR" property="toLon" />
+    <result column="lat" jdbcType="NVARCHAR" property="lat" />
+    <result column="to_lat" jdbcType="NVARCHAR" property="toLat" />
+    <result column="file_name" jdbcType="VARCHAR" property="fileName" />
+    <result column="old_time" jdbcType="TIMESTAMP" property="oldTime" />
+    <result column="multimedia_name" jdbcType="NVARCHAR" property="multimediaName" />
+    <result column="sound_name" jdbcType="VARCHAR" property="soundName" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.mzb.dmxxk.entity.TblPlaceAttrinfoWithBLOBs">
+    <result column="place_meaning" jdbcType="LONGNVARCHAR" property="placeMeaning" />
+    <result column="place_history" jdbcType="LONGNVARCHAR" property="placeHistory" />
+    <result column="comment" jdbcType="LONGNVARCHAR" property="comment" />
+    <result column="entity_profile" jdbcType="LONGNVARCHAR" property="entityProfile" />
+    <result column="multimedia_info" jdbcType="LONGNVARCHAR" property="multimediaInfo" />
+    <result column="place_origin" jdbcType="LONGNVARCHAR" property="placeOrigin" />
+    <result column="place_origin2" jdbcType="LONGVARCHAR" property="placeOrigin2" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ID, place_code, standard_name, original_name, use_time, EB_BSM, EB_XZQHDM, EB_PCQ, 
+    roman_alphabet_spelling, ethnic_minorities_writing, abbreviations, east_longitude, 
+    north_latitude, to_east_longitude, to_north_latitude, scale, coordinates, measuring_method, 
+    secret_level, place_type, registration_time, registrant, registrant_unit, alias, 
+    place_original_sound, place_language, figure_no, establishment_year, abolish_year, 
+    rome_spelling, placement_census_status, chinese_character_writing, mandarin_chinese_pronunciation, 
+    data_sources, former_name, update_time, cn_administrative_area_id, declare_time, 
+    declare_unit, declare_unit_address, declare_status, declarer, declare_type, declarer_phone, 
+    declare_postcode, process_instance_id, is_show, geometry, registranter, administrative_area_name, 
+    mark, province, city, area, place_type_code, province_name, city_name, area_name, 
+    pinyin, attachment_information, file_url, lon, to_lon, lat, to_lat, file_name, old_time, 
+    multimedia_name, sound_name
+  </sql>
+  <sql id="Blob_Column_List">
+    place_meaning, place_history, comment, entity_profile, multimedia_info, place_origin, 
+    place_origin2
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="com.mzb.dmxxk.entity.TblPlaceAttrinfoExample" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from mca10..tbl_place_attrinfo
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="com.mzb.dmxxk.entity.TblPlaceAttrinfoExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from mca10..tbl_place_attrinfo
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from mca10..tbl_place_attrinfo
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from mca10..tbl_place_attrinfo
+    where ID = #{id,jdbcType=DECIMAL}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.mzb.dmxxk.entity.TblPlaceAttrinfoExample">
+    delete from mca10..tbl_place_attrinfo
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.mzb.dmxxk.entity.TblPlaceAttrinfoWithBLOBs">
+    insert into mca10..tbl_place_attrinfo (ID, place_code, standard_name, 
+      original_name, use_time, EB_BSM, 
+      EB_XZQHDM, EB_PCQ, roman_alphabet_spelling, 
+      ethnic_minorities_writing, abbreviations, 
+      east_longitude, north_latitude, to_east_longitude, 
+      to_north_latitude, scale, coordinates, 
+      measuring_method, secret_level, place_type, 
+      registration_time, registrant, registrant_unit, 
+      alias, place_original_sound, place_language, 
+      figure_no, establishment_year, abolish_year, 
+      rome_spelling, placement_census_status, 
+      chinese_character_writing, mandarin_chinese_pronunciation, 
+      data_sources, former_name, update_time, 
+      cn_administrative_area_id, declare_time, 
+      declare_unit, declare_unit_address, declare_status, 
+      declarer, declare_type, declarer_phone, 
+      declare_postcode, process_instance_id, is_show, 
+      geometry, registranter, administrative_area_name, 
+      mark, province, city, 
+      area, place_type_code, province_name, 
+      city_name, area_name, pinyin, 
+      attachment_information, file_url, lon, 
+      to_lon, lat, to_lat, 
+      file_name, old_time, multimedia_name, 
+      sound_name, place_meaning, place_history, 
+      comment, entity_profile, multimedia_info, 
+      place_origin, place_origin2)
+    values (#{id,jdbcType=DECIMAL}, #{placeCode,jdbcType=CHAR}, #{standardName,jdbcType=NVARCHAR}, 
+      #{originalName,jdbcType=NVARCHAR}, #{useTime,jdbcType=NVARCHAR}, #{ebBsm,jdbcType=CHAR}, 
+      #{ebXzqhdm,jdbcType=CHAR}, #{ebPcq,jdbcType=INTEGER}, #{romanAlphabetSpelling,jdbcType=NVARCHAR}, 
+      #{ethnicMinoritiesWriting,jdbcType=NVARCHAR}, #{abbreviations,jdbcType=NVARCHAR}, 
+      #{eastLongitude,jdbcType=NVARCHAR}, #{northLatitude,jdbcType=NVARCHAR}, #{toEastLongitude,jdbcType=NVARCHAR}, 
+      #{toNorthLatitude,jdbcType=NVARCHAR}, #{scale,jdbcType=NVARCHAR}, #{coordinates,jdbcType=NVARCHAR}, 
+      #{measuringMethod,jdbcType=NVARCHAR}, #{secretLevel,jdbcType=NVARCHAR}, #{placeType,jdbcType=NVARCHAR}, 
+      #{registrationTime,jdbcType=TIMESTAMP}, #{registrant,jdbcType=NVARCHAR}, #{registrantUnit,jdbcType=NVARCHAR}, 
+      #{alias,jdbcType=NVARCHAR}, #{placeOriginalSound,jdbcType=NVARCHAR}, #{placeLanguage,jdbcType=NVARCHAR}, 
+      #{figureNo,jdbcType=NVARCHAR}, #{establishmentYear,jdbcType=NVARCHAR}, #{abolishYear,jdbcType=NVARCHAR}, 
+      #{romeSpelling,jdbcType=NVARCHAR}, #{placementCensusStatus,jdbcType=NVARCHAR}, 
+      #{chineseCharacterWriting,jdbcType=NVARCHAR}, #{mandarinChinesePronunciation,jdbcType=NVARCHAR}, 
+      #{dataSources,jdbcType=NVARCHAR}, #{formerName,jdbcType=NVARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{cnAdministrativeAreaId,jdbcType=VARCHAR}, #{declareTime,jdbcType=TIMESTAMP}, 
+      #{declareUnit,jdbcType=VARCHAR}, #{declareUnitAddress,jdbcType=VARCHAR}, #{declareStatus,jdbcType=NCHAR}, 
+      #{declarer,jdbcType=VARCHAR}, #{declareType,jdbcType=NCHAR}, #{declarerPhone,jdbcType=VARCHAR}, 
+      #{declarePostcode,jdbcType=NCHAR}, #{processInstanceId,jdbcType=INTEGER}, #{isShow,jdbcType=INTEGER}, 
+      #{geometry,jdbcType=VARCHAR}, #{registranter,jdbcType=VARCHAR}, #{administrativeAreaName,jdbcType=VARCHAR}, 
+      #{mark,jdbcType=INTEGER}, #{province,jdbcType=INTEGER}, #{city,jdbcType=INTEGER}, 
+      #{area,jdbcType=VARCHAR}, #{placeTypeCode,jdbcType=VARCHAR}, #{provinceName,jdbcType=VARCHAR}, 
+      #{cityName,jdbcType=VARCHAR}, #{areaName,jdbcType=VARCHAR}, #{pinyin,jdbcType=VARCHAR}, 
+      #{attachmentInformation,jdbcType=VARCHAR}, #{fileUrl,jdbcType=VARCHAR}, #{lon,jdbcType=NVARCHAR}, 
+      #{toLon,jdbcType=NVARCHAR}, #{lat,jdbcType=NVARCHAR}, #{toLat,jdbcType=NVARCHAR}, 
+      #{fileName,jdbcType=VARCHAR}, #{oldTime,jdbcType=TIMESTAMP}, #{multimediaName,jdbcType=NVARCHAR}, 
+      #{soundName,jdbcType=VARCHAR}, #{placeMeaning,jdbcType=LONGNVARCHAR}, #{placeHistory,jdbcType=LONGNVARCHAR}, 
+      #{comment,jdbcType=LONGNVARCHAR}, #{entityProfile,jdbcType=LONGNVARCHAR}, #{multimediaInfo,jdbcType=LONGNVARCHAR}, 
+      #{placeOrigin,jdbcType=LONGNVARCHAR}, #{placeOrigin2,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.mzb.dmxxk.entity.TblPlaceAttrinfoWithBLOBs">
+    insert into mca10..tbl_place_attrinfo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="placeCode != null">
+        place_code,
+      </if>
+      <if test="standardName != null">
+        standard_name,
+      </if>
+      <if test="originalName != null">
+        original_name,
+      </if>
+      <if test="useTime != null">
+        use_time,
+      </if>
+      <if test="ebBsm != null">
+        EB_BSM,
+      </if>
+      <if test="ebXzqhdm != null">
+        EB_XZQHDM,
+      </if>
+      <if test="ebPcq != null">
+        EB_PCQ,
+      </if>
+      <if test="romanAlphabetSpelling != null">
+        roman_alphabet_spelling,
+      </if>
+      <if test="ethnicMinoritiesWriting != null">
+        ethnic_minorities_writing,
+      </if>
+      <if test="abbreviations != null">
+        abbreviations,
+      </if>
+      <if test="eastLongitude != null">
+        east_longitude,
+      </if>
+      <if test="northLatitude != null">
+        north_latitude,
+      </if>
+      <if test="toEastLongitude != null">
+        to_east_longitude,
+      </if>
+      <if test="toNorthLatitude != null">
+        to_north_latitude,
+      </if>
+      <if test="scale != null">
+        scale,
+      </if>
+      <if test="coordinates != null">
+        coordinates,
+      </if>
+      <if test="measuringMethod != null">
+        measuring_method,
+      </if>
+      <if test="secretLevel != null">
+        secret_level,
+      </if>
+      <if test="placeType != null">
+        place_type,
+      </if>
+      <if test="registrationTime != null">
+        registration_time,
+      </if>
+      <if test="registrant != null">
+        registrant,
+      </if>
+      <if test="registrantUnit != null">
+        registrant_unit,
+      </if>
+      <if test="alias != null">
+        alias,
+      </if>
+      <if test="placeOriginalSound != null">
+        place_original_sound,
+      </if>
+      <if test="placeLanguage != null">
+        place_language,
+      </if>
+      <if test="figureNo != null">
+        figure_no,
+      </if>
+      <if test="establishmentYear != null">
+        establishment_year,
+      </if>
+      <if test="abolishYear != null">
+        abolish_year,
+      </if>
+      <if test="romeSpelling != null">
+        rome_spelling,
+      </if>
+      <if test="placementCensusStatus != null">
+        placement_census_status,
+      </if>
+      <if test="chineseCharacterWriting != null">
+        chinese_character_writing,
+      </if>
+      <if test="mandarinChinesePronunciation != null">
+        mandarin_chinese_pronunciation,
+      </if>
+      <if test="dataSources != null">
+        data_sources,
+      </if>
+      <if test="formerName != null">
+        former_name,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="cnAdministrativeAreaId != null">
+        cn_administrative_area_id,
+      </if>
+      <if test="declareTime != null">
+        declare_time,
+      </if>
+      <if test="declareUnit != null">
+        declare_unit,
+      </if>
+      <if test="declareUnitAddress != null">
+        declare_unit_address,
+      </if>
+      <if test="declareStatus != null">
+        declare_status,
+      </if>
+      <if test="declarer != null">
+        declarer,
+      </if>
+      <if test="declareType != null">
+        declare_type,
+      </if>
+      <if test="declarerPhone != null">
+        declarer_phone,
+      </if>
+      <if test="declarePostcode != null">
+        declare_postcode,
+      </if>
+      <if test="processInstanceId != null">
+        process_instance_id,
+      </if>
+      <if test="isShow != null">
+        is_show,
+      </if>
+      <if test="geometry != null">
+        geometry,
+      </if>
+      <if test="registranter != null">
+        registranter,
+      </if>
+      <if test="administrativeAreaName != null">
+        administrative_area_name,
+      </if>
+      <if test="mark != null">
+        mark,
+      </if>
+      <if test="province != null">
+        province,
+      </if>
+      <if test="city != null">
+        city,
+      </if>
+      <if test="area != null">
+        area,
+      </if>
+      <if test="placeTypeCode != null">
+        place_type_code,
+      </if>
+      <if test="provinceName != null">
+        province_name,
+      </if>
+      <if test="cityName != null">
+        city_name,
+      </if>
+      <if test="areaName != null">
+        area_name,
+      </if>
+      <if test="pinyin != null">
+        pinyin,
+      </if>
+      <if test="attachmentInformation != null">
+        attachment_information,
+      </if>
+      <if test="fileUrl != null">
+        file_url,
+      </if>
+      <if test="lon != null">
+        lon,
+      </if>
+      <if test="toLon != null">
+        to_lon,
+      </if>
+      <if test="lat != null">
+        lat,
+      </if>
+      <if test="toLat != null">
+        to_lat,
+      </if>
+      <if test="fileName != null">
+        file_name,
+      </if>
+      <if test="oldTime != null">
+        old_time,
+      </if>
+      <if test="multimediaName != null">
+        multimedia_name,
+      </if>
+      <if test="soundName != null">
+        sound_name,
+      </if>
+      <if test="placeMeaning != null">
+        place_meaning,
+      </if>
+      <if test="placeHistory != null">
+        place_history,
+      </if>
+      <if test="comment != null">
+        comment,
+      </if>
+      <if test="entityProfile != null">
+        entity_profile,
+      </if>
+      <if test="multimediaInfo != null">
+        multimedia_info,
+      </if>
+      <if test="placeOrigin != null">
+        place_origin,
+      </if>
+      <if test="placeOrigin2 != null">
+        place_origin2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="placeCode != null">
+        #{placeCode,jdbcType=CHAR},
+      </if>
+      <if test="standardName != null">
+        #{standardName,jdbcType=NVARCHAR},
+      </if>
+      <if test="originalName != null">
+        #{originalName,jdbcType=NVARCHAR},
+      </if>
+      <if test="useTime != null">
+        #{useTime,jdbcType=NVARCHAR},
+      </if>
+      <if test="ebBsm != null">
+        #{ebBsm,jdbcType=CHAR},
+      </if>
+      <if test="ebXzqhdm != null">
+        #{ebXzqhdm,jdbcType=CHAR},
+      </if>
+      <if test="ebPcq != null">
+        #{ebPcq,jdbcType=INTEGER},
+      </if>
+      <if test="romanAlphabetSpelling != null">
+        #{romanAlphabetSpelling,jdbcType=NVARCHAR},
+      </if>
+      <if test="ethnicMinoritiesWriting != null">
+        #{ethnicMinoritiesWriting,jdbcType=NVARCHAR},
+      </if>
+      <if test="abbreviations != null">
+        #{abbreviations,jdbcType=NVARCHAR},
+      </if>
+      <if test="eastLongitude != null">
+        #{eastLongitude,jdbcType=NVARCHAR},
+      </if>
+      <if test="northLatitude != null">
+        #{northLatitude,jdbcType=NVARCHAR},
+      </if>
+      <if test="toEastLongitude != null">
+        #{toEastLongitude,jdbcType=NVARCHAR},
+      </if>
+      <if test="toNorthLatitude != null">
+        #{toNorthLatitude,jdbcType=NVARCHAR},
+      </if>
+      <if test="scale != null">
+        #{scale,jdbcType=NVARCHAR},
+      </if>
+      <if test="coordinates != null">
+        #{coordinates,jdbcType=NVARCHAR},
+      </if>
+      <if test="measuringMethod != null">
+        #{measuringMethod,jdbcType=NVARCHAR},
+      </if>
+      <if test="secretLevel != null">
+        #{secretLevel,jdbcType=NVARCHAR},
+      </if>
+      <if test="placeType != null">
+        #{placeType,jdbcType=NVARCHAR},
+      </if>
+      <if test="registrationTime != null">
+        #{registrationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="registrant != null">
+        #{registrant,jdbcType=NVARCHAR},
+      </if>
+      <if test="registrantUnit != null">
+        #{registrantUnit,jdbcType=NVARCHAR},
+      </if>
+      <if test="alias != null">
+        #{alias,jdbcType=NVARCHAR},
+      </if>
+      <if test="placeOriginalSound != null">
+        #{placeOriginalSound,jdbcType=NVARCHAR},
+      </if>
+      <if test="placeLanguage != null">
+        #{placeLanguage,jdbcType=NVARCHAR},
+      </if>
+      <if test="figureNo != null">
+        #{figureNo,jdbcType=NVARCHAR},
+      </if>
+      <if test="establishmentYear != null">
+        #{establishmentYear,jdbcType=NVARCHAR},
+      </if>
+      <if test="abolishYear != null">
+        #{abolishYear,jdbcType=NVARCHAR},
+      </if>
+      <if test="romeSpelling != null">
+        #{romeSpelling,jdbcType=NVARCHAR},
+      </if>
+      <if test="placementCensusStatus != null">
+        #{placementCensusStatus,jdbcType=NVARCHAR},
+      </if>
+      <if test="chineseCharacterWriting != null">
+        #{chineseCharacterWriting,jdbcType=NVARCHAR},
+      </if>
+      <if test="mandarinChinesePronunciation != null">
+        #{mandarinChinesePronunciation,jdbcType=NVARCHAR},
+      </if>
+      <if test="dataSources != null">
+        #{dataSources,jdbcType=NVARCHAR},
+      </if>
+      <if test="formerName != null">
+        #{formerName,jdbcType=NVARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cnAdministrativeAreaId != null">
+        #{cnAdministrativeAreaId,jdbcType=VARCHAR},
+      </if>
+      <if test="declareTime != null">
+        #{declareTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="declareUnit != null">
+        #{declareUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="declareUnitAddress != null">
+        #{declareUnitAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="declareStatus != null">
+        #{declareStatus,jdbcType=NCHAR},
+      </if>
+      <if test="declarer != null">
+        #{declarer,jdbcType=VARCHAR},
+      </if>
+      <if test="declareType != null">
+        #{declareType,jdbcType=NCHAR},
+      </if>
+      <if test="declarerPhone != null">
+        #{declarerPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="declarePostcode != null">
+        #{declarePostcode,jdbcType=NCHAR},
+      </if>
+      <if test="processInstanceId != null">
+        #{processInstanceId,jdbcType=INTEGER},
+      </if>
+      <if test="isShow != null">
+        #{isShow,jdbcType=INTEGER},
+      </if>
+      <if test="geometry != null">
+        #{geometry,jdbcType=VARCHAR},
+      </if>
+      <if test="registranter != null">
+        #{registranter,jdbcType=VARCHAR},
+      </if>
+      <if test="administrativeAreaName != null">
+        #{administrativeAreaName,jdbcType=VARCHAR},
+      </if>
+      <if test="mark != null">
+        #{mark,jdbcType=INTEGER},
+      </if>
+      <if test="province != null">
+        #{province,jdbcType=INTEGER},
+      </if>
+      <if test="city != null">
+        #{city,jdbcType=INTEGER},
+      </if>
+      <if test="area != null">
+        #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="placeTypeCode != null">
+        #{placeTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="provinceName != null">
+        #{provinceName,jdbcType=VARCHAR},
+      </if>
+      <if test="cityName != null">
+        #{cityName,jdbcType=VARCHAR},
+      </if>
+      <if test="areaName != null">
+        #{areaName,jdbcType=VARCHAR},
+      </if>
+      <if test="pinyin != null">
+        #{pinyin,jdbcType=VARCHAR},
+      </if>
+      <if test="attachmentInformation != null">
+        #{attachmentInformation,jdbcType=VARCHAR},
+      </if>
+      <if test="fileUrl != null">
+        #{fileUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="lon != null">
+        #{lon,jdbcType=NVARCHAR},
+      </if>
+      <if test="toLon != null">
+        #{toLon,jdbcType=NVARCHAR},
+      </if>
+      <if test="lat != null">
+        #{lat,jdbcType=NVARCHAR},
+      </if>
+      <if test="toLat != null">
+        #{toLat,jdbcType=NVARCHAR},
+      </if>
+      <if test="fileName != null">
+        #{fileName,jdbcType=VARCHAR},
+      </if>
+      <if test="oldTime != null">
+        #{oldTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="multimediaName != null">
+        #{multimediaName,jdbcType=NVARCHAR},
+      </if>
+      <if test="soundName != null">
+        #{soundName,jdbcType=VARCHAR},
+      </if>
+      <if test="placeMeaning != null">
+        #{placeMeaning,jdbcType=LONGNVARCHAR},
+      </if>
+      <if test="placeHistory != null">
+        #{placeHistory,jdbcType=LONGNVARCHAR},
+      </if>
+      <if test="comment != null">
+        #{comment,jdbcType=LONGNVARCHAR},
+      </if>
+      <if test="entityProfile != null">
+        #{entityProfile,jdbcType=LONGNVARCHAR},
+      </if>
+      <if test="multimediaInfo != null">
+        #{multimediaInfo,jdbcType=LONGNVARCHAR},
+      </if>
+      <if test="placeOrigin != null">
+        #{placeOrigin,jdbcType=LONGNVARCHAR},
+      </if>
+      <if test="placeOrigin2 != null">
+        #{placeOrigin2,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.mzb.dmxxk.entity.TblPlaceAttrinfoExample" resultType="java.lang.Long">
+    select count(*) from mca10..tbl_place_attrinfo
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update mca10..tbl_place_attrinfo
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=DECIMAL},
+      </if>
+      <if test="record.placeCode != null">
+        place_code = #{record.placeCode,jdbcType=CHAR},
+      </if>
+      <if test="record.standardName != null">
+        standard_name = #{record.standardName,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.originalName != null">
+        original_name = #{record.originalName,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.useTime != null">
+        use_time = #{record.useTime,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.ebBsm != null">
+        EB_BSM = #{record.ebBsm,jdbcType=CHAR},
+      </if>
+      <if test="record.ebXzqhdm != null">
+        EB_XZQHDM = #{record.ebXzqhdm,jdbcType=CHAR},
+      </if>
+      <if test="record.ebPcq != null">
+        EB_PCQ = #{record.ebPcq,jdbcType=INTEGER},
+      </if>
+      <if test="record.romanAlphabetSpelling != null">
+        roman_alphabet_spelling = #{record.romanAlphabetSpelling,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.ethnicMinoritiesWriting != null">
+        ethnic_minorities_writing = #{record.ethnicMinoritiesWriting,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.abbreviations != null">
+        abbreviations = #{record.abbreviations,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.eastLongitude != null">
+        east_longitude = #{record.eastLongitude,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.northLatitude != null">
+        north_latitude = #{record.northLatitude,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.toEastLongitude != null">
+        to_east_longitude = #{record.toEastLongitude,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.toNorthLatitude != null">
+        to_north_latitude = #{record.toNorthLatitude,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.scale != null">
+        scale = #{record.scale,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.coordinates != null">
+        coordinates = #{record.coordinates,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.measuringMethod != null">
+        measuring_method = #{record.measuringMethod,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.secretLevel != null">
+        secret_level = #{record.secretLevel,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.placeType != null">
+        place_type = #{record.placeType,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.registrationTime != null">
+        registration_time = #{record.registrationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.registrant != null">
+        registrant = #{record.registrant,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.registrantUnit != null">
+        registrant_unit = #{record.registrantUnit,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.alias != null">
+        alias = #{record.alias,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.placeOriginalSound != null">
+        place_original_sound = #{record.placeOriginalSound,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.placeLanguage != null">
+        place_language = #{record.placeLanguage,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.figureNo != null">
+        figure_no = #{record.figureNo,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.establishmentYear != null">
+        establishment_year = #{record.establishmentYear,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.abolishYear != null">
+        abolish_year = #{record.abolishYear,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.romeSpelling != null">
+        rome_spelling = #{record.romeSpelling,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.placementCensusStatus != null">
+        placement_census_status = #{record.placementCensusStatus,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.chineseCharacterWriting != null">
+        chinese_character_writing = #{record.chineseCharacterWriting,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.mandarinChinesePronunciation != null">
+        mandarin_chinese_pronunciation = #{record.mandarinChinesePronunciation,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.dataSources != null">
+        data_sources = #{record.dataSources,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.formerName != null">
+        former_name = #{record.formerName,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.updateTime != null">
+        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.cnAdministrativeAreaId != null">
+        cn_administrative_area_id = #{record.cnAdministrativeAreaId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.declareTime != null">
+        declare_time = #{record.declareTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.declareUnit != null">
+        declare_unit = #{record.declareUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="record.declareUnitAddress != null">
+        declare_unit_address = #{record.declareUnitAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.declareStatus != null">
+        declare_status = #{record.declareStatus,jdbcType=NCHAR},
+      </if>
+      <if test="record.declarer != null">
+        declarer = #{record.declarer,jdbcType=VARCHAR},
+      </if>
+      <if test="record.declareType != null">
+        declare_type = #{record.declareType,jdbcType=NCHAR},
+      </if>
+      <if test="record.declarerPhone != null">
+        declarer_phone = #{record.declarerPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.declarePostcode != null">
+        declare_postcode = #{record.declarePostcode,jdbcType=NCHAR},
+      </if>
+      <if test="record.processInstanceId != null">
+        process_instance_id = #{record.processInstanceId,jdbcType=INTEGER},
+      </if>
+      <if test="record.isShow != null">
+        is_show = #{record.isShow,jdbcType=INTEGER},
+      </if>
+      <if test="record.geometry != null">
+        geometry = #{record.geometry,jdbcType=VARCHAR},
+      </if>
+      <if test="record.registranter != null">
+        registranter = #{record.registranter,jdbcType=VARCHAR},
+      </if>
+      <if test="record.administrativeAreaName != null">
+        administrative_area_name = #{record.administrativeAreaName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mark != null">
+        mark = #{record.mark,jdbcType=INTEGER},
+      </if>
+      <if test="record.province != null">
+        province = #{record.province,jdbcType=INTEGER},
+      </if>
+      <if test="record.city != null">
+        city = #{record.city,jdbcType=INTEGER},
+      </if>
+      <if test="record.area != null">
+        area = #{record.area,jdbcType=VARCHAR},
+      </if>
+      <if test="record.placeTypeCode != null">
+        place_type_code = #{record.placeTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.provinceName != null">
+        province_name = #{record.provinceName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cityName != null">
+        city_name = #{record.cityName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.areaName != null">
+        area_name = #{record.areaName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pinyin != null">
+        pinyin = #{record.pinyin,jdbcType=VARCHAR},
+      </if>
+      <if test="record.attachmentInformation != null">
+        attachment_information = #{record.attachmentInformation,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fileUrl != null">
+        file_url = #{record.fileUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lon != null">
+        lon = #{record.lon,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.toLon != null">
+        to_lon = #{record.toLon,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.lat != null">
+        lat = #{record.lat,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.toLat != null">
+        to_lat = #{record.toLat,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.fileName != null">
+        file_name = #{record.fileName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.oldTime != null">
+        old_time = #{record.oldTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.multimediaName != null">
+        multimedia_name = #{record.multimediaName,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.soundName != null">
+        sound_name = #{record.soundName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.placeMeaning != null">
+        place_meaning = #{record.placeMeaning,jdbcType=LONGNVARCHAR},
+      </if>
+      <if test="record.placeHistory != null">
+        place_history = #{record.placeHistory,jdbcType=LONGNVARCHAR},
+      </if>
+      <if test="record.comment != null">
+        comment = #{record.comment,jdbcType=LONGNVARCHAR},
+      </if>
+      <if test="record.entityProfile != null">
+        entity_profile = #{record.entityProfile,jdbcType=LONGNVARCHAR},
+      </if>
+      <if test="record.multimediaInfo != null">
+        multimedia_info = #{record.multimediaInfo,jdbcType=LONGNVARCHAR},
+      </if>
+      <if test="record.placeOrigin != null">
+        place_origin = #{record.placeOrigin,jdbcType=LONGNVARCHAR},
+      </if>
+      <if test="record.placeOrigin2 != null">
+        place_origin2 = #{record.placeOrigin2,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    update mca10..tbl_place_attrinfo
+    set ID = #{record.id,jdbcType=DECIMAL},
+      place_code = #{record.placeCode,jdbcType=CHAR},
+      standard_name = #{record.standardName,jdbcType=NVARCHAR},
+      original_name = #{record.originalName,jdbcType=NVARCHAR},
+      use_time = #{record.useTime,jdbcType=NVARCHAR},
+      EB_BSM = #{record.ebBsm,jdbcType=CHAR},
+      EB_XZQHDM = #{record.ebXzqhdm,jdbcType=CHAR},
+      EB_PCQ = #{record.ebPcq,jdbcType=INTEGER},
+      roman_alphabet_spelling = #{record.romanAlphabetSpelling,jdbcType=NVARCHAR},
+      ethnic_minorities_writing = #{record.ethnicMinoritiesWriting,jdbcType=NVARCHAR},
+      abbreviations = #{record.abbreviations,jdbcType=NVARCHAR},
+      east_longitude = #{record.eastLongitude,jdbcType=NVARCHAR},
+      north_latitude = #{record.northLatitude,jdbcType=NVARCHAR},
+      to_east_longitude = #{record.toEastLongitude,jdbcType=NVARCHAR},
+      to_north_latitude = #{record.toNorthLatitude,jdbcType=NVARCHAR},
+      scale = #{record.scale,jdbcType=NVARCHAR},
+      coordinates = #{record.coordinates,jdbcType=NVARCHAR},
+      measuring_method = #{record.measuringMethod,jdbcType=NVARCHAR},
+      secret_level = #{record.secretLevel,jdbcType=NVARCHAR},
+      place_type = #{record.placeType,jdbcType=NVARCHAR},
+      registration_time = #{record.registrationTime,jdbcType=TIMESTAMP},
+      registrant = #{record.registrant,jdbcType=NVARCHAR},
+      registrant_unit = #{record.registrantUnit,jdbcType=NVARCHAR},
+      alias = #{record.alias,jdbcType=NVARCHAR},
+      place_original_sound = #{record.placeOriginalSound,jdbcType=NVARCHAR},
+      place_language = #{record.placeLanguage,jdbcType=NVARCHAR},
+      figure_no = #{record.figureNo,jdbcType=NVARCHAR},
+      establishment_year = #{record.establishmentYear,jdbcType=NVARCHAR},
+      abolish_year = #{record.abolishYear,jdbcType=NVARCHAR},
+      rome_spelling = #{record.romeSpelling,jdbcType=NVARCHAR},
+      placement_census_status = #{record.placementCensusStatus,jdbcType=NVARCHAR},
+      chinese_character_writing = #{record.chineseCharacterWriting,jdbcType=NVARCHAR},
+      mandarin_chinese_pronunciation = #{record.mandarinChinesePronunciation,jdbcType=NVARCHAR},
+      data_sources = #{record.dataSources,jdbcType=NVARCHAR},
+      former_name = #{record.formerName,jdbcType=NVARCHAR},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      cn_administrative_area_id = #{record.cnAdministrativeAreaId,jdbcType=VARCHAR},
+      declare_time = #{record.declareTime,jdbcType=TIMESTAMP},
+      declare_unit = #{record.declareUnit,jdbcType=VARCHAR},
+      declare_unit_address = #{record.declareUnitAddress,jdbcType=VARCHAR},
+      declare_status = #{record.declareStatus,jdbcType=NCHAR},
+      declarer = #{record.declarer,jdbcType=VARCHAR},
+      declare_type = #{record.declareType,jdbcType=NCHAR},
+      declarer_phone = #{record.declarerPhone,jdbcType=VARCHAR},
+      declare_postcode = #{record.declarePostcode,jdbcType=NCHAR},
+      process_instance_id = #{record.processInstanceId,jdbcType=INTEGER},
+      is_show = #{record.isShow,jdbcType=INTEGER},
+      geometry = #{record.geometry,jdbcType=VARCHAR},
+      registranter = #{record.registranter,jdbcType=VARCHAR},
+      administrative_area_name = #{record.administrativeAreaName,jdbcType=VARCHAR},
+      mark = #{record.mark,jdbcType=INTEGER},
+      province = #{record.province,jdbcType=INTEGER},
+      city = #{record.city,jdbcType=INTEGER},
+      area = #{record.area,jdbcType=VARCHAR},
+      place_type_code = #{record.placeTypeCode,jdbcType=VARCHAR},
+      province_name = #{record.provinceName,jdbcType=VARCHAR},
+      city_name = #{record.cityName,jdbcType=VARCHAR},
+      area_name = #{record.areaName,jdbcType=VARCHAR},
+      pinyin = #{record.pinyin,jdbcType=VARCHAR},
+      attachment_information = #{record.attachmentInformation,jdbcType=VARCHAR},
+      file_url = #{record.fileUrl,jdbcType=VARCHAR},
+      lon = #{record.lon,jdbcType=NVARCHAR},
+      to_lon = #{record.toLon,jdbcType=NVARCHAR},
+      lat = #{record.lat,jdbcType=NVARCHAR},
+      to_lat = #{record.toLat,jdbcType=NVARCHAR},
+      file_name = #{record.fileName,jdbcType=VARCHAR},
+      old_time = #{record.oldTime,jdbcType=TIMESTAMP},
+      multimedia_name = #{record.multimediaName,jdbcType=NVARCHAR},
+      sound_name = #{record.soundName,jdbcType=VARCHAR},
+      place_meaning = #{record.placeMeaning,jdbcType=LONGNVARCHAR},
+      place_history = #{record.placeHistory,jdbcType=LONGNVARCHAR},
+      comment = #{record.comment,jdbcType=LONGNVARCHAR},
+      entity_profile = #{record.entityProfile,jdbcType=LONGNVARCHAR},
+      multimedia_info = #{record.multimediaInfo,jdbcType=LONGNVARCHAR},
+      place_origin = #{record.placeOrigin,jdbcType=LONGNVARCHAR},
+      place_origin2 = #{record.placeOrigin2,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update mca10..tbl_place_attrinfo
+    set ID = #{record.id,jdbcType=DECIMAL},
+      place_code = #{record.placeCode,jdbcType=CHAR},
+      standard_name = #{record.standardName,jdbcType=NVARCHAR},
+      original_name = #{record.originalName,jdbcType=NVARCHAR},
+      use_time = #{record.useTime,jdbcType=NVARCHAR},
+      EB_BSM = #{record.ebBsm,jdbcType=CHAR},
+      EB_XZQHDM = #{record.ebXzqhdm,jdbcType=CHAR},
+      EB_PCQ = #{record.ebPcq,jdbcType=INTEGER},
+      roman_alphabet_spelling = #{record.romanAlphabetSpelling,jdbcType=NVARCHAR},
+      ethnic_minorities_writing = #{record.ethnicMinoritiesWriting,jdbcType=NVARCHAR},
+      abbreviations = #{record.abbreviations,jdbcType=NVARCHAR},
+      east_longitude = #{record.eastLongitude,jdbcType=NVARCHAR},
+      north_latitude = #{record.northLatitude,jdbcType=NVARCHAR},
+      to_east_longitude = #{record.toEastLongitude,jdbcType=NVARCHAR},
+      to_north_latitude = #{record.toNorthLatitude,jdbcType=NVARCHAR},
+      scale = #{record.scale,jdbcType=NVARCHAR},
+      coordinates = #{record.coordinates,jdbcType=NVARCHAR},
+      measuring_method = #{record.measuringMethod,jdbcType=NVARCHAR},
+      secret_level = #{record.secretLevel,jdbcType=NVARCHAR},
+      place_type = #{record.placeType,jdbcType=NVARCHAR},
+      registration_time = #{record.registrationTime,jdbcType=TIMESTAMP},
+      registrant = #{record.registrant,jdbcType=NVARCHAR},
+      registrant_unit = #{record.registrantUnit,jdbcType=NVARCHAR},
+      alias = #{record.alias,jdbcType=NVARCHAR},
+      place_original_sound = #{record.placeOriginalSound,jdbcType=NVARCHAR},
+      place_language = #{record.placeLanguage,jdbcType=NVARCHAR},
+      figure_no = #{record.figureNo,jdbcType=NVARCHAR},
+      establishment_year = #{record.establishmentYear,jdbcType=NVARCHAR},
+      abolish_year = #{record.abolishYear,jdbcType=NVARCHAR},
+      rome_spelling = #{record.romeSpelling,jdbcType=NVARCHAR},
+      placement_census_status = #{record.placementCensusStatus,jdbcType=NVARCHAR},
+      chinese_character_writing = #{record.chineseCharacterWriting,jdbcType=NVARCHAR},
+      mandarin_chinese_pronunciation = #{record.mandarinChinesePronunciation,jdbcType=NVARCHAR},
+      data_sources = #{record.dataSources,jdbcType=NVARCHAR},
+      former_name = #{record.formerName,jdbcType=NVARCHAR},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      cn_administrative_area_id = #{record.cnAdministrativeAreaId,jdbcType=VARCHAR},
+      declare_time = #{record.declareTime,jdbcType=TIMESTAMP},
+      declare_unit = #{record.declareUnit,jdbcType=VARCHAR},
+      declare_unit_address = #{record.declareUnitAddress,jdbcType=VARCHAR},
+      declare_status = #{record.declareStatus,jdbcType=NCHAR},
+      declarer = #{record.declarer,jdbcType=VARCHAR},
+      declare_type = #{record.declareType,jdbcType=NCHAR},
+      declarer_phone = #{record.declarerPhone,jdbcType=VARCHAR},
+      declare_postcode = #{record.declarePostcode,jdbcType=NCHAR},
+      process_instance_id = #{record.processInstanceId,jdbcType=INTEGER},
+      is_show = #{record.isShow,jdbcType=INTEGER},
+      geometry = #{record.geometry,jdbcType=VARCHAR},
+      registranter = #{record.registranter,jdbcType=VARCHAR},
+      administrative_area_name = #{record.administrativeAreaName,jdbcType=VARCHAR},
+      mark = #{record.mark,jdbcType=INTEGER},
+      province = #{record.province,jdbcType=INTEGER},
+      city = #{record.city,jdbcType=INTEGER},
+      area = #{record.area,jdbcType=VARCHAR},
+      place_type_code = #{record.placeTypeCode,jdbcType=VARCHAR},
+      province_name = #{record.provinceName,jdbcType=VARCHAR},
+      city_name = #{record.cityName,jdbcType=VARCHAR},
+      area_name = #{record.areaName,jdbcType=VARCHAR},
+      pinyin = #{record.pinyin,jdbcType=VARCHAR},
+      attachment_information = #{record.attachmentInformation,jdbcType=VARCHAR},
+      file_url = #{record.fileUrl,jdbcType=VARCHAR},
+      lon = #{record.lon,jdbcType=NVARCHAR},
+      to_lon = #{record.toLon,jdbcType=NVARCHAR},
+      lat = #{record.lat,jdbcType=NVARCHAR},
+      to_lat = #{record.toLat,jdbcType=NVARCHAR},
+      file_name = #{record.fileName,jdbcType=VARCHAR},
+      old_time = #{record.oldTime,jdbcType=TIMESTAMP},
+      multimedia_name = #{record.multimediaName,jdbcType=NVARCHAR},
+      sound_name = #{record.soundName,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mzb.dmxxk.entity.TblPlaceAttrinfoWithBLOBs">
+    update mca10..tbl_place_attrinfo
+    <set>
+      <if test="placeCode != null">
+        place_code = #{placeCode,jdbcType=CHAR},
+      </if>
+      <if test="standardName != null">
+        standard_name = #{standardName,jdbcType=NVARCHAR},
+      </if>
+      <if test="originalName != null">
+        original_name = #{originalName,jdbcType=NVARCHAR},
+      </if>
+      <if test="useTime != null">
+        use_time = #{useTime,jdbcType=NVARCHAR},
+      </if>
+      <if test="ebBsm != null">
+        EB_BSM = #{ebBsm,jdbcType=CHAR},
+      </if>
+      <if test="ebXzqhdm != null">
+        EB_XZQHDM = #{ebXzqhdm,jdbcType=CHAR},
+      </if>
+      <if test="ebPcq != null">
+        EB_PCQ = #{ebPcq,jdbcType=INTEGER},
+      </if>
+      <if test="romanAlphabetSpelling != null">
+        roman_alphabet_spelling = #{romanAlphabetSpelling,jdbcType=NVARCHAR},
+      </if>
+      <if test="ethnicMinoritiesWriting != null">
+        ethnic_minorities_writing = #{ethnicMinoritiesWriting,jdbcType=NVARCHAR},
+      </if>
+      <if test="abbreviations != null">
+        abbreviations = #{abbreviations,jdbcType=NVARCHAR},
+      </if>
+      <if test="eastLongitude != null">
+        east_longitude = #{eastLongitude,jdbcType=NVARCHAR},
+      </if>
+      <if test="northLatitude != null">
+        north_latitude = #{northLatitude,jdbcType=NVARCHAR},
+      </if>
+      <if test="toEastLongitude != null">
+        to_east_longitude = #{toEastLongitude,jdbcType=NVARCHAR},
+      </if>
+      <if test="toNorthLatitude != null">
+        to_north_latitude = #{toNorthLatitude,jdbcType=NVARCHAR},
+      </if>
+      <if test="scale != null">
+        scale = #{scale,jdbcType=NVARCHAR},
+      </if>
+      <if test="coordinates != null">
+        coordinates = #{coordinates,jdbcType=NVARCHAR},
+      </if>
+      <if test="measuringMethod != null">
+        measuring_method = #{measuringMethod,jdbcType=NVARCHAR},
+      </if>
+      <if test="secretLevel != null">
+        secret_level = #{secretLevel,jdbcType=NVARCHAR},
+      </if>
+      <if test="placeType != null">
+        place_type = #{placeType,jdbcType=NVARCHAR},
+      </if>
+      <if test="registrationTime != null">
+        registration_time = #{registrationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="registrant != null">
+        registrant = #{registrant,jdbcType=NVARCHAR},
+      </if>
+      <if test="registrantUnit != null">
+        registrant_unit = #{registrantUnit,jdbcType=NVARCHAR},
+      </if>
+      <if test="alias != null">
+        alias = #{alias,jdbcType=NVARCHAR},
+      </if>
+      <if test="placeOriginalSound != null">
+        place_original_sound = #{placeOriginalSound,jdbcType=NVARCHAR},
+      </if>
+      <if test="placeLanguage != null">
+        place_language = #{placeLanguage,jdbcType=NVARCHAR},
+      </if>
+      <if test="figureNo != null">
+        figure_no = #{figureNo,jdbcType=NVARCHAR},
+      </if>
+      <if test="establishmentYear != null">
+        establishment_year = #{establishmentYear,jdbcType=NVARCHAR},
+      </if>
+      <if test="abolishYear != null">
+        abolish_year = #{abolishYear,jdbcType=NVARCHAR},
+      </if>
+      <if test="romeSpelling != null">
+        rome_spelling = #{romeSpelling,jdbcType=NVARCHAR},
+      </if>
+      <if test="placementCensusStatus != null">
+        placement_census_status = #{placementCensusStatus,jdbcType=NVARCHAR},
+      </if>
+      <if test="chineseCharacterWriting != null">
+        chinese_character_writing = #{chineseCharacterWriting,jdbcType=NVARCHAR},
+      </if>
+      <if test="mandarinChinesePronunciation != null">
+        mandarin_chinese_pronunciation = #{mandarinChinesePronunciation,jdbcType=NVARCHAR},
+      </if>
+      <if test="dataSources != null">
+        data_sources = #{dataSources,jdbcType=NVARCHAR},
+      </if>
+      <if test="formerName != null">
+        former_name = #{formerName,jdbcType=NVARCHAR},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cnAdministrativeAreaId != null">
+        cn_administrative_area_id = #{cnAdministrativeAreaId,jdbcType=VARCHAR},
+      </if>
+      <if test="declareTime != null">
+        declare_time = #{declareTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="declareUnit != null">
+        declare_unit = #{declareUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="declareUnitAddress != null">
+        declare_unit_address = #{declareUnitAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="declareStatus != null">
+        declare_status = #{declareStatus,jdbcType=NCHAR},
+      </if>
+      <if test="declarer != null">
+        declarer = #{declarer,jdbcType=VARCHAR},
+      </if>
+      <if test="declareType != null">
+        declare_type = #{declareType,jdbcType=NCHAR},
+      </if>
+      <if test="declarerPhone != null">
+        declarer_phone = #{declarerPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="declarePostcode != null">
+        declare_postcode = #{declarePostcode,jdbcType=NCHAR},
+      </if>
+      <if test="processInstanceId != null">
+        process_instance_id = #{processInstanceId,jdbcType=INTEGER},
+      </if>
+      <if test="isShow != null">
+        is_show = #{isShow,jdbcType=INTEGER},
+      </if>
+      <if test="geometry != null">
+        geometry = #{geometry,jdbcType=VARCHAR},
+      </if>
+      <if test="registranter != null">
+        registranter = #{registranter,jdbcType=VARCHAR},
+      </if>
+      <if test="administrativeAreaName != null">
+        administrative_area_name = #{administrativeAreaName,jdbcType=VARCHAR},
+      </if>
+      <if test="mark != null">
+        mark = #{mark,jdbcType=INTEGER},
+      </if>
+      <if test="province != null">
+        province = #{province,jdbcType=INTEGER},
+      </if>
+      <if test="city != null">
+        city = #{city,jdbcType=INTEGER},
+      </if>
+      <if test="area != null">
+        area = #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="placeTypeCode != null">
+        place_type_code = #{placeTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="provinceName != null">
+        province_name = #{provinceName,jdbcType=VARCHAR},
+      </if>
+      <if test="cityName != null">
+        city_name = #{cityName,jdbcType=VARCHAR},
+      </if>
+      <if test="areaName != null">
+        area_name = #{areaName,jdbcType=VARCHAR},
+      </if>
+      <if test="pinyin != null">
+        pinyin = #{pinyin,jdbcType=VARCHAR},
+      </if>
+      <if test="attachmentInformation != null">
+        attachment_information = #{attachmentInformation,jdbcType=VARCHAR},
+      </if>
+      <if test="fileUrl != null">
+        file_url = #{fileUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="lon != null">
+        lon = #{lon,jdbcType=NVARCHAR},
+      </if>
+      <if test="toLon != null">
+        to_lon = #{toLon,jdbcType=NVARCHAR},
+      </if>
+      <if test="lat != null">
+        lat = #{lat,jdbcType=NVARCHAR},
+      </if>
+      <if test="toLat != null">
+        to_lat = #{toLat,jdbcType=NVARCHAR},
+      </if>
+      <if test="fileName != null">
+        file_name = #{fileName,jdbcType=VARCHAR},
+      </if>
+      <if test="oldTime != null">
+        old_time = #{oldTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="multimediaName != null">
+        multimedia_name = #{multimediaName,jdbcType=NVARCHAR},
+      </if>
+      <if test="soundName != null">
+        sound_name = #{soundName,jdbcType=VARCHAR},
+      </if>
+      <if test="placeMeaning != null">
+        place_meaning = #{placeMeaning,jdbcType=LONGNVARCHAR},
+      </if>
+      <if test="placeHistory != null">
+        place_history = #{placeHistory,jdbcType=LONGNVARCHAR},
+      </if>
+      <if test="comment != null">
+        comment = #{comment,jdbcType=LONGNVARCHAR},
+      </if>
+      <if test="entityProfile != null">
+        entity_profile = #{entityProfile,jdbcType=LONGNVARCHAR},
+      </if>
+      <if test="multimediaInfo != null">
+        multimedia_info = #{multimediaInfo,jdbcType=LONGNVARCHAR},
+      </if>
+      <if test="placeOrigin != null">
+        place_origin = #{placeOrigin,jdbcType=LONGNVARCHAR},
+      </if>
+      <if test="placeOrigin2 != null">
+        place_origin2 = #{placeOrigin2,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.mzb.dmxxk.entity.TblPlaceAttrinfoWithBLOBs">
+    update mca10..tbl_place_attrinfo
+    set place_code = #{placeCode,jdbcType=CHAR},
+      standard_name = #{standardName,jdbcType=NVARCHAR},
+      original_name = #{originalName,jdbcType=NVARCHAR},
+      use_time = #{useTime,jdbcType=NVARCHAR},
+      EB_BSM = #{ebBsm,jdbcType=CHAR},
+      EB_XZQHDM = #{ebXzqhdm,jdbcType=CHAR},
+      EB_PCQ = #{ebPcq,jdbcType=INTEGER},
+      roman_alphabet_spelling = #{romanAlphabetSpelling,jdbcType=NVARCHAR},
+      ethnic_minorities_writing = #{ethnicMinoritiesWriting,jdbcType=NVARCHAR},
+      abbreviations = #{abbreviations,jdbcType=NVARCHAR},
+      east_longitude = #{eastLongitude,jdbcType=NVARCHAR},
+      north_latitude = #{northLatitude,jdbcType=NVARCHAR},
+      to_east_longitude = #{toEastLongitude,jdbcType=NVARCHAR},
+      to_north_latitude = #{toNorthLatitude,jdbcType=NVARCHAR},
+      scale = #{scale,jdbcType=NVARCHAR},
+      coordinates = #{coordinates,jdbcType=NVARCHAR},
+      measuring_method = #{measuringMethod,jdbcType=NVARCHAR},
+      secret_level = #{secretLevel,jdbcType=NVARCHAR},
+      place_type = #{placeType,jdbcType=NVARCHAR},
+      registration_time = #{registrationTime,jdbcType=TIMESTAMP},
+      registrant = #{registrant,jdbcType=NVARCHAR},
+      registrant_unit = #{registrantUnit,jdbcType=NVARCHAR},
+      alias = #{alias,jdbcType=NVARCHAR},
+      place_original_sound = #{placeOriginalSound,jdbcType=NVARCHAR},
+      place_language = #{placeLanguage,jdbcType=NVARCHAR},
+      figure_no = #{figureNo,jdbcType=NVARCHAR},
+      establishment_year = #{establishmentYear,jdbcType=NVARCHAR},
+      abolish_year = #{abolishYear,jdbcType=NVARCHAR},
+      rome_spelling = #{romeSpelling,jdbcType=NVARCHAR},
+      placement_census_status = #{placementCensusStatus,jdbcType=NVARCHAR},
+      chinese_character_writing = #{chineseCharacterWriting,jdbcType=NVARCHAR},
+      mandarin_chinese_pronunciation = #{mandarinChinesePronunciation,jdbcType=NVARCHAR},
+      data_sources = #{dataSources,jdbcType=NVARCHAR},
+      former_name = #{formerName,jdbcType=NVARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      cn_administrative_area_id = #{cnAdministrativeAreaId,jdbcType=VARCHAR},
+      declare_time = #{declareTime,jdbcType=TIMESTAMP},
+      declare_unit = #{declareUnit,jdbcType=VARCHAR},
+      declare_unit_address = #{declareUnitAddress,jdbcType=VARCHAR},
+      declare_status = #{declareStatus,jdbcType=NCHAR},
+      declarer = #{declarer,jdbcType=VARCHAR},
+      declare_type = #{declareType,jdbcType=NCHAR},
+      declarer_phone = #{declarerPhone,jdbcType=VARCHAR},
+      declare_postcode = #{declarePostcode,jdbcType=NCHAR},
+      process_instance_id = #{processInstanceId,jdbcType=INTEGER},
+      is_show = #{isShow,jdbcType=INTEGER},
+      geometry = #{geometry,jdbcType=VARCHAR},
+      registranter = #{registranter,jdbcType=VARCHAR},
+      administrative_area_name = #{administrativeAreaName,jdbcType=VARCHAR},
+      mark = #{mark,jdbcType=INTEGER},
+      province = #{province,jdbcType=INTEGER},
+      city = #{city,jdbcType=INTEGER},
+      area = #{area,jdbcType=VARCHAR},
+      place_type_code = #{placeTypeCode,jdbcType=VARCHAR},
+      province_name = #{provinceName,jdbcType=VARCHAR},
+      city_name = #{cityName,jdbcType=VARCHAR},
+      area_name = #{areaName,jdbcType=VARCHAR},
+      pinyin = #{pinyin,jdbcType=VARCHAR},
+      attachment_information = #{attachmentInformation,jdbcType=VARCHAR},
+      file_url = #{fileUrl,jdbcType=VARCHAR},
+      lon = #{lon,jdbcType=NVARCHAR},
+      to_lon = #{toLon,jdbcType=NVARCHAR},
+      lat = #{lat,jdbcType=NVARCHAR},
+      to_lat = #{toLat,jdbcType=NVARCHAR},
+      file_name = #{fileName,jdbcType=VARCHAR},
+      old_time = #{oldTime,jdbcType=TIMESTAMP},
+      multimedia_name = #{multimediaName,jdbcType=NVARCHAR},
+      sound_name = #{soundName,jdbcType=VARCHAR},
+      place_meaning = #{placeMeaning,jdbcType=LONGNVARCHAR},
+      place_history = #{placeHistory,jdbcType=LONGNVARCHAR},
+      comment = #{comment,jdbcType=LONGNVARCHAR},
+      entity_profile = #{entityProfile,jdbcType=LONGNVARCHAR},
+      multimedia_info = #{multimediaInfo,jdbcType=LONGNVARCHAR},
+      place_origin = #{placeOrigin,jdbcType=LONGNVARCHAR},
+      place_origin2 = #{placeOrigin2,jdbcType=LONGVARCHAR}
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mzb.dmxxk.entity.TblPlaceAttrinfo">
+    update mca10..tbl_place_attrinfo
+    set place_code = #{placeCode,jdbcType=CHAR},
+      standard_name = #{standardName,jdbcType=NVARCHAR},
+      original_name = #{originalName,jdbcType=NVARCHAR},
+      use_time = #{useTime,jdbcType=NVARCHAR},
+      EB_BSM = #{ebBsm,jdbcType=CHAR},
+      EB_XZQHDM = #{ebXzqhdm,jdbcType=CHAR},
+      EB_PCQ = #{ebPcq,jdbcType=INTEGER},
+      roman_alphabet_spelling = #{romanAlphabetSpelling,jdbcType=NVARCHAR},
+      ethnic_minorities_writing = #{ethnicMinoritiesWriting,jdbcType=NVARCHAR},
+      abbreviations = #{abbreviations,jdbcType=NVARCHAR},
+      east_longitude = #{eastLongitude,jdbcType=NVARCHAR},
+      north_latitude = #{northLatitude,jdbcType=NVARCHAR},
+      to_east_longitude = #{toEastLongitude,jdbcType=NVARCHAR},
+      to_north_latitude = #{toNorthLatitude,jdbcType=NVARCHAR},
+      scale = #{scale,jdbcType=NVARCHAR},
+      coordinates = #{coordinates,jdbcType=NVARCHAR},
+      measuring_method = #{measuringMethod,jdbcType=NVARCHAR},
+      secret_level = #{secretLevel,jdbcType=NVARCHAR},
+      place_type = #{placeType,jdbcType=NVARCHAR},
+      registration_time = #{registrationTime,jdbcType=TIMESTAMP},
+      registrant = #{registrant,jdbcType=NVARCHAR},
+      registrant_unit = #{registrantUnit,jdbcType=NVARCHAR},
+      alias = #{alias,jdbcType=NVARCHAR},
+      place_original_sound = #{placeOriginalSound,jdbcType=NVARCHAR},
+      place_language = #{placeLanguage,jdbcType=NVARCHAR},
+      figure_no = #{figureNo,jdbcType=NVARCHAR},
+      establishment_year = #{establishmentYear,jdbcType=NVARCHAR},
+      abolish_year = #{abolishYear,jdbcType=NVARCHAR},
+      rome_spelling = #{romeSpelling,jdbcType=NVARCHAR},
+      placement_census_status = #{placementCensusStatus,jdbcType=NVARCHAR},
+      chinese_character_writing = #{chineseCharacterWriting,jdbcType=NVARCHAR},
+      mandarin_chinese_pronunciation = #{mandarinChinesePronunciation,jdbcType=NVARCHAR},
+      data_sources = #{dataSources,jdbcType=NVARCHAR},
+      former_name = #{formerName,jdbcType=NVARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      cn_administrative_area_id = #{cnAdministrativeAreaId,jdbcType=VARCHAR},
+      declare_time = #{declareTime,jdbcType=TIMESTAMP},
+      declare_unit = #{declareUnit,jdbcType=VARCHAR},
+      declare_unit_address = #{declareUnitAddress,jdbcType=VARCHAR},
+      declare_status = #{declareStatus,jdbcType=NCHAR},
+      declarer = #{declarer,jdbcType=VARCHAR},
+      declare_type = #{declareType,jdbcType=NCHAR},
+      declarer_phone = #{declarerPhone,jdbcType=VARCHAR},
+      declare_postcode = #{declarePostcode,jdbcType=NCHAR},
+      process_instance_id = #{processInstanceId,jdbcType=INTEGER},
+      is_show = #{isShow,jdbcType=INTEGER},
+      geometry = #{geometry,jdbcType=VARCHAR},
+      registranter = #{registranter,jdbcType=VARCHAR},
+      administrative_area_name = #{administrativeAreaName,jdbcType=VARCHAR},
+      mark = #{mark,jdbcType=INTEGER},
+      province = #{province,jdbcType=INTEGER},
+      city = #{city,jdbcType=INTEGER},
+      area = #{area,jdbcType=VARCHAR},
+      place_type_code = #{placeTypeCode,jdbcType=VARCHAR},
+      province_name = #{provinceName,jdbcType=VARCHAR},
+      city_name = #{cityName,jdbcType=VARCHAR},
+      area_name = #{areaName,jdbcType=VARCHAR},
+      pinyin = #{pinyin,jdbcType=VARCHAR},
+      attachment_information = #{attachmentInformation,jdbcType=VARCHAR},
+      file_url = #{fileUrl,jdbcType=VARCHAR},
+      lon = #{lon,jdbcType=NVARCHAR},
+      to_lon = #{toLon,jdbcType=NVARCHAR},
+      lat = #{lat,jdbcType=NVARCHAR},
+      to_lat = #{toLat,jdbcType=NVARCHAR},
+      file_name = #{fileName,jdbcType=VARCHAR},
+      old_time = #{oldTime,jdbcType=TIMESTAMP},
+      multimedia_name = #{multimediaName,jdbcType=NVARCHAR},
+      sound_name = #{soundName,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+</mapper>

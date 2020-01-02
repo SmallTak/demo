@@ -30,7 +30,7 @@ public class SendEamil {
 //
 //    }
 
-    @Scheduled(cron = "0 35 10 ? * *")
+    @Scheduled(cron = "0 24 11 ? * *")
     public void selectData(){
         System.out.println("开始查询数据");
         try {
@@ -41,13 +41,11 @@ public class SendEamil {
 
     }
 
-    @Scheduled(cron = "0 50 10 ? * * ")
+    @Scheduled(cron = "0 30 11 ? * * ")
     public void sendAttachment(){
         String filePath = "E:\\count.xls";
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
         System.out.println("开始发送excel" + System.currentTimeMillis());
-        util.sendAttachmentMail("zhouyunhui@philisense.com","数据统计",dateFormat.format(new Date(System.currentTimeMillis())) + "全国各市数据统计",filePath);
+        util.sendAttachmentMail("zhouyunhui@philisense.com","数据统计" + new Date(System.currentTimeMillis()),dateFormat.format(new Date(System.currentTimeMillis())) + "全国各市数据统计",filePath);
     }
-
-
 }

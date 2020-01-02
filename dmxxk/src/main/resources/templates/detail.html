@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container">
+    <h3>Hello World</h3>
+    <br>
+    <br>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>地名代码</th>
+            <th>标准名称</th>
+            <th>罗马字母拼写</th>
+            <th>地名类别</th>
+            <th>地名的来历</th>
+            <th>地名的含义</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <tr>
+            <td th:text="${attrinfo.getPlaceCode()}"></td>
+            <td th:text="${attrinfo.getStandardName()}"></td>
+            <td th:text="${attrinfo.getRomanAlphabetSpelling()}"></td>
+            <td th:text="${attrinfo.getPlaceType()}"></td>
+            <td th:text="${attrinfo.getPlaceOrigin()}"></td>
+            <td th:text="${attrinfo.getPlaceMeaning()}"></td>
+        </tr>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

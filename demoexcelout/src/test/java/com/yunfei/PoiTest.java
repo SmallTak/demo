@@ -106,7 +106,7 @@ public class PoiTest {
     public void getProvinceName(){
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
 
-        System.out.println(dateFormat.format(new Date(System.currentTimeMillis())));
+        System.out.println(dateFormat.format(new Date(System.currentTimeMillis())) );
 
     }
 
