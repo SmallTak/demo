@@ -44,7 +44,7 @@
         <td id="lastNum" th:text="${pag}" hidden>
         </tbody>
     </table>
-    <!--<ul id="pagination-demo" class="pagination pull-right"></ul>-->
+    <ul id="pagination-demo" class="pagination pull-right"></ul>
     <div id="pager" class="pager clearfix">
     </div>
 </div>
@@ -52,12 +52,13 @@
 <script src="/plugins/jQuery/jquery.twbsPagination.min.js"></script>
 <script src="/plugins/layer/layer.js"></script>
 
-<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
-<script src="js/jquery.z-pager.js" type="text/javascript" charset="utf-8"></script>
+<!--<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>-->
+<!--<script src="js/jquery.z-pager.js" type="text/javascript" charset="utf-8"></script>-->
 <script>
     $(function () {
         var pag = $("#lastNum").text();
-        var standardName = $("#standardName").text();.console.log(pag);//page为当前页码
+        var standardName = $("#standardName").text();
+        console.log(pag);//page为当前页码
         $('#pagination-demo').twbsPagination({
             totalPages:pag/3+1,
             visiblePages: 3,
