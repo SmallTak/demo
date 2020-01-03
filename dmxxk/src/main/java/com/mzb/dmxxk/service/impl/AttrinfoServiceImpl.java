@@ -24,7 +24,7 @@ public class AttrinfoServiceImpl implements AttrinfoService {
     private TblPlaceAttrinfoMapper attrinfoMapper;
 
     @Override
-    public PageInfo<TblPlaceAttrinfoWithBLOBs> findAllData(Integer pageNo,String standardName) {
+    public PageInfo<TblPlaceAttrinfoWithBLOBs> findAllData(Integer pageNo, String standardName) {
         TblPlaceAttrinfoExample placeAttrinfoExample = new TblPlaceAttrinfoExample();
         placeAttrinfoExample.createCriteria().andStandardNameEqualTo(standardName);
         PageHelper.startPage(pageNo, 3);

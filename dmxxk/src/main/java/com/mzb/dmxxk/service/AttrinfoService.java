@@ -14,7 +14,7 @@ import java.util.List;
 
 public interface AttrinfoService {
 
-    PageInfo<TblPlaceAttrinfoWithBLOBs> findAllData(Integer pageNo,String standardName);
+    PageInfo<TblPlaceAttrinfoWithBLOBs> findAllData(Integer pageNo, String standardName);
 
     TblPlaceAttrinfo findById(Integer id);
 

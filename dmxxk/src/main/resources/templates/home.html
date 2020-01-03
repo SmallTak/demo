@@ -6,7 +6,6 @@
     <title>首页</title>
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/paging.css">
-    <link rel="stylesheet" type="text/css" href="css/page.css">
 
 </head>
 <body>
@@ -52,22 +51,31 @@
 <script src="/plugins/jQuery/jquery.twbsPagination.min.js"></script>
 <script src="/plugins/layer/layer.js"></script>
 
-<!--<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>-->
-<!--<script src="js/jquery.z-pager.js" type="text/javascript" charset="utf-8"></script>-->
+
 <script>
     $(function () {
+
+        function getUrlParam(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+            var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+            if (r != null) return unescape(r[2]); return null; //返回参数值
+        };
+
+        var ur = getUrlParam('p') == null ? 1 : getUrlParam('p')
+        console.log(ur);
+
         var pag = $("#lastNum").text();
         var standardName = $("#standardName").text();
-        console.log(pag);//page为当前页码
         $('#pagination-demo').twbsPagination({
             totalPages:pag/3+1,
-            visiblePages: 3,
             startPage: 1,
+            visiblePages: 2,
             first:'首页',
             last:'末页',
             prev:'上一页',
             next:'下一页',
-            href:"?p={{number}}" + "&standardName=" + standardName
+            href:"?standardName="+ encodeURIComponent(standardName) + "&p={{number}}"
+            // + "&standardName=" + standardName
         });
     })
 </script>
