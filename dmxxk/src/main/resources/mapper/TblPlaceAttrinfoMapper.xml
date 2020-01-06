@@ -195,6 +195,14 @@
     from mca10..tbl_place_attrinfo
     where ID = #{id,jdbcType=DECIMAL}
   </select>
+  <select id="selectBylike" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from mca10..tbl_place_attrinfo
+    where standard_name LIKE '%'+ #{standardName} +'%'
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from mca10..tbl_place_attrinfo
     where ID = #{id,jdbcType=DECIMAL}

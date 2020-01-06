@@ -29,14 +29,14 @@ public class HomeController {
         return "/search";
     }
 
-    @GetMapping("/search")//@RequestParam(required = true)String standardName
-    public String home(@RequestParam(required = false, name = "p", defaultValue = "1") Integer pageNo,@RequestParam(required = true)String standardName, Model model){
+    @GetMapping("/search")
+    public String home(@RequestParam(required = true,name = "standardName")String standardName,@RequestParam(required = false, name = "p", defaultValue = "1") Integer pageNo, Model model){
         PageInfo<TblPlaceAttrinfoWithBLOBs> pageInfo  = attrinfoService.findAllData(pageNo,standardName);
-        int i = 1;
-        System.out.println(i++);
+
         model.addAttribute("pag",pageInfo.getTotal());
+        System.out.println(pageInfo.getTotal()/4);
         model.addAttribute("pageInfo", pageInfo);
-        return "/home";
+        return "/home";//other
     }
 
     @GetMapping("/{id}")

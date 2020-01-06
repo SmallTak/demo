@@ -26,6 +26,8 @@ public interface TblPlaceAttrinfoMapper {
 
     TblPlaceAttrinfoWithBLOBs selectByPrimaryKey(Long id);
 
+    List<TblPlaceAttrinfoWithBLOBs> selectBylike(String standardName);
+
     int updateByExampleSelective(@Param("record") TblPlaceAttrinfoWithBLOBs record, @Param("example") TblPlaceAttrinfoExample example);
 
     int updateByExampleWithBLOBs(@Param("record") TblPlaceAttrinfoWithBLOBs record, @Param("example") TblPlaceAttrinfoExample example);

@@ -6,16 +6,28 @@
     <title>首页</title>
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/paging.css">
-    <link rel="stylesheet" type="text/css" href="/css/page.css">
+    <link rel="stylesheet" href="/css/jp-paginator.css" />
 
+    <style type="text/css">
+        a{
+            color: black;
+            text-decoration: none;
+        }
+        label {
+            display: inline-block;
+            width: 5em;
+        }
+    </style>
 </head>
 <body>
 
 <div class="container">
-    <h3>Hello World</h3>
     <br>
     <br>
-
+    <h3><a href="http://localhost:8080/">Hello World</a> </h3>
+    <br>
+    <br>
+    <br>
     <table class="table">
         <thead>
         <tr>
@@ -41,38 +53,98 @@
             <td th:text="${item.getPlaceMeaning()}"></td>
             <td id="standardName" th:text="${item.getStandardName()}" hidden>
         </tr>
-        <td id="lastNum" th:text="${pag}" hidden>
+        <!--分页容器，class样式均设置在jp-paginator.css文件中，可根据需要进行更改-->
+        <div class="customBootstrap">
+            <div id="pageBox" class="pagination"></div>
+            <div class="pageBoxInfo">总计xx 条，共xx 页</div>
+        </div>
+
         </tbody>
     </table>
-    <!--<ul id="pagination-demo" class="pagination pull-right"></ul>-->
-        <div id="pager" class="pager clearfix">
-        </div>
+
 </div>
-<!--<script src="/bootstrap/js/jquery.min.js"></script>-->
-<!--<script src="/plugins/layer/layer.js"></script>-->
-<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
-<script src="/js/jquery.z-pager.js" type="text/javascript" charset="utf-8"></script>
+<script src="/bootstrap/js/jquery.min.js"></script>
+<script src="/plugins/layer/layer.js"></script>
+<script src="/js/jq-paginator.js"></script>
+
 <script>
-    // $(function () {
-    //     var pag = $("#lastNum").text();
-    //     var standardName = $("#standardName").text();
-    //     var currentPage;
-    //     console.log(pag);//page为当前页码
+    $(document).ready(function () {
 
-        $("#pager").zPager({
-            totalData: 2,
-            htmlBox: $('#wraper'),
-            btnShow: true,
-            ajaxSetData: false
+
+
+        //初始化分页插件
+        $('#pageBox').jqPaginator({
+            totalPages: 11,   //总页数。这里可以随便设置大于0的数，后面会动态更改
+            visiblePages: 5, //显示页码按钮个数
+            currentPage: 1,   //当前页
+            first: '<li class="first"><a href="javascript:void(0);">首页<\/a><\/li>',
+            prev: '<li class="prev"><a href="javascript:void(0);"><i class="arrow arrow2"></i>上一页<\/a><\/li>',
+            next: '<li class="next"><a href="javascript:void(0);">下一页<i class="arrow arrow3"></i><\/a><\/li>',
+            last: '<li class="last"><a href="javascript:void(0);">尾页<\/a><\/li>',
+            page: '<li class="page"><a href="javascript:void(0);">{{page}}<\/a><\/li>',
+            onPageChange: function (num,type) {
+                //onPageChange触发条件：初始化分页插件时、改变页码时
+                //console.log('当前第' + num + '页')
+                loading(num, 5);
+            }
+
         });
+        function getRequest() {
+            var url = window.location.search; //获取url中"?"符后的字串
+            var theRequest = new Object();
+            if (url.indexOf("?") != -1) {
+                var str = url.substr(1);
+                strs = str.split("&");
+                for(var i = 0; i < strs.length; i ++) {
+                    //就是这句的问题
+                    theRequest[strs[i].split("=")[0]]=decodeURI(strs[i].split("=")[1]);
+                    //之前用了unescape()
+                    //才会出现乱码
+                }
+            }
+            return theRequest;
+        };
+        var arr = getRequest();
+        var searchtxt = arr['standardName'];//参数名
 
-        function currentPage(currentPage){
-            /*
-                触发页码数位置： Page/js/jquery.z-pager.js 64行
-            */
-            console.log("当前页码数：" + currentPage);
-        }
-    // })
+        /**
+         * 异步加载数据，可在任意方法调用该函数，进行分页查询，也可传入额外的查询条件
+         * @param pageNum 第几页
+         * @param pageSize 每页显示的数量
+         */
+        function loading(pageNum = 1, pageSize = 5) {
+            console.log(searchtxt);
+
+            $.ajax({
+                type: 'GET',
+                url: "/search",
+                data: {pageNum, pageSize},
+                dataType: "json",
+                success: function (data) {
+                    if (data.code == 0) {
+                        //后台返回数据
+                        let list = data.result.list;		//数据列表
+                        let pageNum = data.result.pageNum;	//当前页码
+                        let pages = data.result.pages; 		//总页码
+                        let total = data.result.total;		//总数
+
+                        //使用jq操作dom,渲染数据到页面，这里根据自己的需求去渲染
+                        let root = $('#table');
+                        root.empty();
+                        root.append(htmlTab1(list));
+
+                        //设置分页信息,从后台返回的数据获取当前页码和总页码
+                        $('#pageBox').jqPaginator('option', {
+                            currentPage: pageNum ,
+                            totalPages: pages ? pages : 1
+                        });
+                        //显示汇总信息
+                        $('#pageBox').next().html("总计" + total  + " 条，共" + pages + " 页")
+                    }
+                },
+            });
+        };
+    })
 </script>
 
 </body>
