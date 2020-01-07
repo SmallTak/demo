@@ -57,8 +57,6 @@ public class HomeController {
     @PostMapping("/{id}/edit")
     public String editMovie(TblPlaceAttrinfoWithBLOBs placeAttrinfoWithBLOBs) {
         attrinfoService.update(placeAttrinfoWithBLOBs);
-        System.out.println(placeAttrinfoWithBLOBs.getPlaceCode());
-        System.out.println(placeAttrinfoWithBLOBs.getMandarinChinesePronunciation() + "this");
         return "redirect:/pro";
     }
 

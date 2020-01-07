@@ -2,6 +2,7 @@ package com.mzb.dmxxk.service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.google.gson.Gson;
 import com.mzb.dmxxk.entity.TblPlaceAttrinfo;
 import com.mzb.dmxxk.entity.TblPlaceAttrinfoExample;
 import com.mzb.dmxxk.entity.TblPlaceAttrinfoWithBLOBs;
@@ -39,7 +40,6 @@ public class AttrinfoServiceImpl implements AttrinfoService {
 
         if (tblPlaceAttrinfoWithBLOBs.isEmpty() || tblPlaceAttrinfoWithBLOBs.equals(null)) {
             PageHelper.startPage(pageNo, 4);
-            System.out.println("数据为空");
             TblPlaceAttrinfoExample tblPlaceAttrinfoWithBLOBsNot = new TblPlaceAttrinfoExample();
             tblPlaceAttrinfoWithBLOBsNot.createCriteria().andStandardNameLike(standardName + "%");
             List<TblPlaceAttrinfoWithBLOBs> tblPlaceAttrinfoWithBLOBsother = attrinfoMapper.selectByExampleWithBLOBs(tblPlaceAttrinfoWithBLOBsNot);
@@ -60,6 +60,17 @@ public class AttrinfoServiceImpl implements AttrinfoService {
     @Transactional
     @Override
     public void update(TblPlaceAttrinfoWithBLOBs placeAttrinfoWithBLOBs) {
+//        TblPlaceAttrinfoWithBLOBs tblPlaceAttrinfoWithBLOBs = attrinfoMapper.selectByPrimaryKey(Long.valueOf(placeAttrinfoWithBLOBs.getId()));
+//        if (tblPlaceAttrinfoWithBLOBs.equals(placeAttrinfoWithBLOBs)){
+//            System.out.println("数据未发送改变！");
+//        }else {
+//            System.out.println("数据发生修改");
+//            Gson gson = new Gson();
+//            System.out.println("原始数据：" + gson.toJson(tblPlaceAttrinfoWithBLOBs,TblPlaceAttrinfo.class));
+//            System.out.println("now数据：" +  gson.toJson(placeAttrinfoWithBLOBs,TblPlaceAttrinfoWithBLOBs.class));
+//
+//        }
+//        System.out.println("发生变化的数据：" + placeAttrinfoWithBLOBs.toString());
         attrinfoMapper.updateByPrimaryKeySelective(placeAttrinfoWithBLOBs);
     }
 

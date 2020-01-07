@@ -26,10 +26,10 @@
     <br>
     <br>
     <form method="post">
-
+        <!--<div class="form-group"><label>ID</label><input type="text" class="form-control" name="placeCode"-->
+                                                          <!--readonly="readonly" th:value="${attrinfo.getId()}"></div>-->
         <div class="form-group"><label>地名代码</label><input type="text" class="form-control" name="placeCode"
-                                                          readonly="readonly" th:value="${attrinfo.getPlaceCode()}">
-        </div>
+                                                          th:value="${attrinfo.getPlaceCode()}"></div>
         <div class="form-group"><label>标准名称</label><input type="text" class="form-control" name="standardName"
                                                           th:value="${attrinfo.getStandardName()}"></div>
         <div class="form-group"><label>别名</label><input type="text" class="form-control" name="alias"
@@ -50,7 +50,7 @@
                                                             th:value="${attrinfo.getRomanAlphabetSpelling()}"></div>
         <div class="form-group"><label>地名语种</label><input type="text" class="form-control" name="placeLanguag"
                                                           th:value="${attrinfo.getPlaceLanguage()}"></div>
-        <div class="form-group"><label>地名语种</label><input type="text" class="form-control" name="placeType"
+        <div class="form-group"><label>地名类别</label><input type="text" class="form-control" name="placeType"
                                                           th:value="${attrinfo.getPlaceType()}"></div>
         <div class="form-group"><label>东经</label><input type="text" class="form-control" name="eastLongitude"
                                                         th:value="${attrinfo.getEastLongitude()}"></div>
@@ -122,14 +122,26 @@
                                                               th:value="${attrinfo.getDeclarerPhone()}"></div>
         <div class="form-group"><label>申报单位邮编</label><input type="text" class="form-control" name="declarePostcode"
                                                             th:value="${attrinfo.getDeclarePostcode()}"></div>
+        <!--<div class="form-group"><label>流程实例ID</label><input type="text" class="form-control" name="declarePostcode"-->
+                                                            <!--th:value="${attrinfo.getProcessInstanceId()}"></div>-->
+        <!--<div class="form-group"><label>流程配置ID</label><input type="text" class="form-control" name="declarePostcode"-->
+                                                            <!--th:value="${attrinfo.getProcessConfigId()}"></div>-->
+        <!--<div class="form-group"><label>附件名称</label><input type="text" class="form-control" name="declarePostcode"-->
+                                                            <!--th:value="${attrinfo.getAttachName()}"></div>-->
+        <!--<div class="form-group"><label>附件地址</label><input type="text" class="form-control" name="declarePostcode"-->
+                                                          <!--th:value="${attrinfo.getAttachUrl()}"></div>-->
+        <!--<div class="form-group"><label>申报描述</label><input type="text" class="form-control" name="declarePostcode"-->
+                                                          <!--th:value="${attrinfo.getDescription()}"></div>-->
         <div class="form-group"><label>空间坐标</label><input type="text" class="form-control" name="deometry"
                                                           th:value="${attrinfo.getGeometry()}"></div>
-        <div class="form-group"><label>登记 人</label><input type="text" class="form-control" name="registranter"
+        <div class="form-group"><label>登记人</label><input type="text" class="form-control" name="registranter"
                                                           th:value="${attrinfo.getRegistranter()}"></div>
         <div class="form-group"><label>地名典故</label><input type="text" class="form-control" name="placeOrigin2"
                                                           th:value="${attrinfo.getPlaceOrigin2()}"></div>
-        <div class="form-group"><label>行政区域名称 </label><input type="text" class="form-control" name="administrativeAreaName"
-                                                             th:value="${attrinfo.getAdministrativeAreaName()}"></div>
+        <!--<div class="form-group"><label>行政区域ID </label><input type="text" class="form-control" name="administrativeAreaName"-->
+                                                             <!--th:value="${attrinfo.getAdministrativeAreaId()}"></div>-->
+        <!--<div class="form-group"><label>行政区域名称 </label><input type="text" class="form-control" name="administrativeAreaName"-->
+                                                             <!--th:value="${attrinfo.getAdministrativeAreaName()}"></div>-->
         <div class="form-group">
             <button class="btn btn-primary">保存</button>
         </div>
