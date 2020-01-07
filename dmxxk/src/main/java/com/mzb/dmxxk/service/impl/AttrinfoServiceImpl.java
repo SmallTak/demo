@@ -37,7 +37,7 @@ public class AttrinfoServiceImpl implements AttrinfoService {
         placeAttrinfoExample.createCriteria().andStandardNameEqualTo(standardName);
         List<TblPlaceAttrinfoWithBLOBs> tblPlaceAttrinfoWithBLOBs = attrinfoMapper.selectByExampleWithBLOBs(placeAttrinfoExample);
 
-        if (tblPlaceAttrinfoWithBLOBs.isEmpty() || tblPlaceAttrinfoWithBLOBs.equals(null)){
+        if (tblPlaceAttrinfoWithBLOBs.isEmpty() || tblPlaceAttrinfoWithBLOBs.equals(null)) {
             PageHelper.startPage(pageNo, 4);
             System.out.println("数据为空");
             TblPlaceAttrinfoExample tblPlaceAttrinfoWithBLOBsNot = new TblPlaceAttrinfoExample();
@@ -45,7 +45,7 @@ public class AttrinfoServiceImpl implements AttrinfoService {
             List<TblPlaceAttrinfoWithBLOBs> tblPlaceAttrinfoWithBLOBsother = attrinfoMapper.selectByExampleWithBLOBs(tblPlaceAttrinfoWithBLOBsNot);
             logger.info("查询条件标准名称为：" + standardName + "-->查询数据 {}", tblPlaceAttrinfoWithBLOBsother);
             return new PageInfo<>(tblPlaceAttrinfoWithBLOBsother);
-        }else {
+        } else {
             logger.info("查询条件标准名称为：" + standardName + "-->查询数据 {}", tblPlaceAttrinfoWithBLOBs);
             return new PageInfo<>(tblPlaceAttrinfoWithBLOBs);
         }

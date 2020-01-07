@@ -28,42 +28,43 @@ public class HomeController {
     private AttrinfoService attrinfoService;
 
     @GetMapping
-    public String all(){
+    public String all() {
         return "/search";
     }
 
     @GetMapping("/search")
-    public String home(@RequestParam(required = true,name = "standardName")String standardName,@RequestParam(required = false, name = "p", defaultValue = "1") Integer pageNo, Model model){
-        PageInfo<TblPlaceAttrinfoWithBLOBs> pageInfo  = attrinfoService.findAllData(pageNo,standardName);
-        model.addAttribute("pag",pageInfo.getTotal());
+    public String home(@RequestParam(required = true, name = "standardName") String standardName, @RequestParam(required = false, name = "p", defaultValue = "1") Integer pageNo, Model model) {
+        PageInfo<TblPlaceAttrinfoWithBLOBs> pageInfo = attrinfoService.findAllData(pageNo, standardName);
+        model.addAttribute("pag", pageInfo.getTotal());
         model.addAttribute("pageInfo", pageInfo);
         return "/home";//other
     }
 
     @GetMapping("/{id}")
-    public String movieDetail(@PathVariable Integer id, Model model){
+    public String movieDetail(@PathVariable Integer id, Model model) {
         TblPlaceAttrinfo attrinfo = attrinfoService.findById(id);
-        model.addAttribute("attrinfo",attrinfo);
+        model.addAttribute("attrinfo", attrinfo);
         return "/detail";
     }
 
     @GetMapping("/{id}/edit")
-    public String movieEdit(@PathVariable Integer id, Model model){
+    public String movieEdit(@PathVariable Integer id, Model model) {
         TblPlaceAttrinfoWithBLOBs attrinfo = attrinfoService.findById(id);
-        model.addAttribute("attrinfo",attrinfo);
+        model.addAttribute("attrinfo", attrinfo);
         return "/edit";
     }
 
     @PostMapping("/{id}/edit")
-    public String editMovie(TblPlaceAttrinfoWithBLOBs placeAttrinfoWithBLOBs){
+    public String editMovie(TblPlaceAttrinfoWithBLOBs placeAttrinfoWithBLOBs) {
         attrinfoService.update(placeAttrinfoWithBLOBs);
         System.out.println(placeAttrinfoWithBLOBs.getPlaceCode());
         System.out.println(placeAttrinfoWithBLOBs.getMandarinChinesePronunciation() + "this");
         return "redirect:/pro";
     }
+
     @InitBinder
     public void init(WebDataBinder binder) {
         binder.registerCustomEditor(Date.class, new CustomDateEditor(new SimpleDateFormat("yyyy-MM-dd"), true));
     }
 
-    }
+}
