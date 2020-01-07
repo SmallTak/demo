@@ -11,6 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -52,8 +53,14 @@ public class AttrinfoServiceImpl implements AttrinfoService {
     }
 
     @Override
-    public TblPlaceAttrinfo findById(Integer id) {
+    public TblPlaceAttrinfoWithBLOBs findById(Integer id) {
         return attrinfoMapper.selectByPrimaryKey(Long.valueOf(id));
+    }
+
+    @Transactional
+    @Override
+    public void update(TblPlaceAttrinfoWithBLOBs placeAttrinfoWithBLOBs) {
+        attrinfoMapper.updateByPrimaryKeySelective(placeAttrinfoWithBLOBs);
     }
 
 }

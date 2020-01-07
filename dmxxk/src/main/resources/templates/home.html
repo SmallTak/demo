@@ -25,7 +25,7 @@
 <div class="container">
     <br>
     <br>
-    <h3><a href="http://localhost:8080/">Hello World</a> </h3>
+    <h3><a href="http://localhost:8080/pro">Hello World</a> </h3>
     <br>
     <br>
     <br>
@@ -39,22 +39,24 @@
                 <th>地名类别</th>
                 <th>地名的来历</th>
                 <th>地名的含义</th>
+                <th>操作</th>
             </tr>
         </thead>
         <tbody>
         <tr th:each="item : ${pageInfo.list}">
             <td>
-                <a th:href="@{/{id}(id=${item.id})}" th:text="${item.getId()}"></a>
+                <a th:href="@{/pro/{id}(id=${item.id})}" th:text="${item.getId()}"></a>
             </td>
             <td th:text="${item.getPlaceCode()}"></td>
             <td th:text="${item.getStandardName()}"></td>
             <td th:text="${item.getRomanAlphabetSpelling()}"></td>
             <td th:text="${item.getPlaceType()}"></td>
-            <!--<td th:text="${item.getPlaceOrigin()}"></td>-->
-            <!--<td th:text="${item.getPlaceMeaning()}"></td>-->
             <td><a href="#" th:title="${item.getPlaceOrigin()}">地名的来历</a></td>
             <td><a href="#" th:title="${item.getPlaceMeaning()}">地名的含义</a></td>
             <td id="standardName" th:text="${item.getStandardName()}" hidden>
+            <td>
+                <a th:href="@{/pro/{id}/edit(id=${item.getId()})}">编辑</a>
+            </td>
         </tr>
         <td id="lastNum" th:text="${pag}" hidden>
         </tbody>

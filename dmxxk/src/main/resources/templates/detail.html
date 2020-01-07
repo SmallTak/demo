@@ -4,36 +4,147 @@
     <meta charset="UTF-8">
     <title>首页</title>
     <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <style type="text/css">
+        a {
+            color: black;
+            text-decoration: none;
+        }
+
+        label {
+            display: inline-block;
+            width: 5em;
+        }
+    </style>
 </head>
 <body>
 
 <div class="container">
-    <h3>Hello World</h3>
+    <br>
+    <br>
+    <h3><a href="http://localhost:8080/pro">Hello World</a></h3>
+    <br>
     <br>
     <br>
     <table class="table">
         <thead>
         <tr>
-            <th>地名代码</th>
-            <th>标准名称</th>
-            <th>罗马字母拼写</th>
-            <th>地名类别</th>
-            <th>地名的来历</th>
-            <th>地名的含义</th>
+            <div class="form-group"><label>地名代码</label><input type="text" class="form-control" name="description" readonly="readonly"
+                                                            th:value="${attrinfo.getPlaceCode()}"></div>
+            <div class="form-group"><label>标准名称</label><input type="text" class="form-control" name="description"
+                                                            th:value="${attrinfo.getStandardName()}"></div>
+            <div class="form-group"><label>别名</label><input type="text" class="form-control" name="description"
+                                                            th:value="${attrinfo.getAlias()}"></div>
+            <div class="form-group"><label>简称</label><input type="text" class="form-control" name="description"
+                                                            th:value="${attrinfo.getAbbreviations()}"></div>
+            <div class="form-group"><label>曾用名</label><input type="text" class="form-control" name="description"
+                                                             th:value="${attrinfo.getFormerName()}"></div>
+            <div class="form-group"><label>汉字书写</label><input type="text" class="form-control" name="description"
+                                                              th:value="${attrinfo.getChineseCharacterWriting()}"></div>
+            <div class="form-group"><label>少数民族语书写</label><input type="text" class="form-control" name="description"
+                                                                 th:value="${attrinfo.getEthnicMinoritiesWriting()}"></div>
+            <div class="form-group"><label>地名原读音</label><input type="text" class="form-control" name="description"
+                                                               th:value="${attrinfo.getPlaceOriginalSound()}"></div>
+            <div class="form-group"><label>汉语普通话读音</label><input type="text" class="form-control" name="description"
+                                                                 th:value="${attrinfo.getMandarinChinesePronunciation()}"></div>
+            <div class="form-group"><label>罗马字母拼写</label><input type="text" class="form-control" name="description"
+                                                                th:value="${attrinfo.getRomanAlphabetSpelling()}"></div>
+            <div class="form-group"><label>地名语种</label><input type="text" class="form-control" name="description"
+                                                              th:value="${attrinfo.getPlaceLanguage()}"></div>
+            <div class="form-group"><label>地名语种</label><input type="text" class="form-control" name="description"
+                                                              th:value="${attrinfo.getPlaceType()}"></div>
+            <div class="form-group"><label>东经</label><input type="text" class="form-control" name="description"
+                                                            th:value="${attrinfo.getEastLongitude()}"></div>
+            <div class="form-group"><label>至东经</label><input type="text" class="form-control" name="description"
+                                                             th:value="${attrinfo.getToEastLongitude()}"></div>
+            <div class="form-group"><label>北纬</label><input type="text" class="form-control" name="description"
+                                                            th:value="${attrinfo.getNorthLatitude()}"></div>
+            <div class="form-group"><label>至北纬</label><input type="text" class="form-control" name="description"
+                                                             th:value="${attrinfo.getToNorthLatitude()}"></div>
+            <div class="form-group"><label>地名普查状态</label><input type="text" class="form-control" name="description"
+                                                                th:value="${attrinfo.getPlacementCensusStatus()}"></div>
+            <div class="form-group"><label>原图名称</label><input type="text" class="form-control" name="description"
+                                                              th:value="${attrinfo.getOriginalName()}"></div>
+            <div class="form-group"><label>图号（年版）</label><input type="text" class="form-control" name="description"
+                                                                th:value="${attrinfo.getFigureNo()}"></div>
+            <div class="form-group"><label>比例尺</label><input type="text" class="form-control" name="description"
+                                                             th:value="${attrinfo.getScale()}"></div>
+            <div class="form-group"><label>使用时间</label><input type="text" class="form-control" name="description"
+                                                              th:value="${attrinfo.getUseTime()}"></div>
+            <div class="form-group"><label>地名的来历</label><input type="text" class="form-control" name="description"
+                                                               th:value="${attrinfo.getPlaceOrigin()}"></div>
+            <div class="form-group"><label>地名的含义</label><input type="text" class="form-control" name="description"
+                                                               th:value="${attrinfo.getPlaceMeaning()}"></div>
+            <div class="form-group"><label>地名的历史沿革</label><input type="text" class="form-control" name="description"
+                                                                 th:value="${attrinfo.getPlaceHistory()}"></div>
+            <div class="form-group"><label>密级</label><input type="text" class="form-control" name="description"
+                                                            th:value="${attrinfo.getSecretLevel()}"></div>
+            <div class="form-group"><label>坐标系</label><input type="text" class="form-control" name="description"
+                                                             th:value="${attrinfo.getCoordinates()}"></div>
+            <div class="form-group"><label>测量方法</label><input type="text" class="form-control" name="description"
+                                                              th:value="${attrinfo.getMeasuringMethod()}"></div>
+            <div class="form-group"><label>地理实体概况</label><input type="text" class="form-control" name="description"
+                                                                th:value="${attrinfo.getEntityProfile()}"></div>
+            <div class="form-group"><label>多媒体信息</label><input type="text" class="form-control" name="description"
+                                                               th:value="${attrinfo.getMultimediaInfo()}"></div>
+            <div class="form-group"><label>资料来源</label><input type="text" class="form-control" name="description"
+                                                              th:value="${attrinfo.getMultimediaInfo()}"></div>
+            <div class="form-group"><label>备注</label><input type="text" class="form-control" name="description"
+                                                            th:value="${attrinfo.getComment()}"></div>
+            <div class="form-group"><label>登记时间</label><input type="text" class="form-control" name="description"
+                                                              th:value="${attrinfo.getRegistrationTime()}"></div>
+            <div class="form-group"><label>登记人</label><input type="text" class="form-control" name="description"
+                                                             th:value="${attrinfo.getRegistrant()}"></div>
+            <div class="form-group"><label>登记单位</label><input type="text" class="form-control" name="description"
+                                                              th:value="${attrinfo.getRegistrantUnit()}"></div>
+            <div class="form-group"><label>通名罗马字母拼写</label><input type="text" class="form-control" name="description"
+                                                                  th:value="${attrinfo.getRomeSpelling()}"></div>
+            <div class="form-group"><label>设立年份</label><input type="text" class="form-control" name="description"
+                                                              th:value="${attrinfo.getEstablishmentYear()}"></div>
+            <div class="form-group"><label>废止年份</label><input type="text" class="form-control" name="description"
+                                                              th:value="${attrinfo.getAbolishYear()}"></div>
+            <div class="form-group"><label>更新时间</label><input type="text" class="form-control" name="description"
+                                                              th:value="${attrinfo.getUpdateTime()}"></div>
+            <div class="form-group"><label>所（垮）属行政区域</label><input type="text" class="form-control" name="description"
+                                                                   th:value="${attrinfo.getCnAdministrativeAreaId()}"></div>
+            <div class="form-group"><label>申报时间</label><input type="text" class="form-control" name="description"
+                                                              th:value="${attrinfo.getDeclareTime()}"></div>
+            <div class="form-group"><label>申报单位</label><input type="text" class="form-control" name="description"
+                                                              th:value="${attrinfo.getDeclareUnit()}"></div>
+            <div class="form-group"><label>申报单位地址</label><input type="text" class="form-control" name="description"
+                                                                th:value="${attrinfo.getDeclareUnitAddress()}"></div>
+            <div class="form-group"><label>申报状态</label><input type="text" class="form-control"name="description"
+                                                                 th:value="${attrinfo.getDeclareStatus()}"></div>
+            <div class="form-group"><label>申报人</label><input type="text" class="form-control" name="description"
+                                                             th:value="${attrinfo.getDeclarer()}"></div>
+            <div class="form-group"><label>申报状态(1 新增 2修改)</label><input type="text" class="form-control"
+                                                                        name="description"
+                                                                        th:value="${attrinfo.getDeclareType()}"></div>
+            <div class="form-group"><label>申报单位联系电话</label><input type="text" class="form-control" name="description"
+                                                                  th:value="${attrinfo.getDeclarerPhone()}"></div>
+            <div class="form-group"><label>申报单位邮编</label><input type="text" class="form-control" name="description"
+                                                                th:value="${attrinfo.getDeclarePostcode()}"></div>
+          <div class="form-group"><label>空间坐标</label><input type="text" class="form-control" name="description"
+                                                              th:value="${attrinfo.getGeometry()}"></div>
+            <div class="form-group"><label>登记 人</label><input type="text" class="form-control" name="description"
+                                                              th:value="${attrinfo.getRegistranter()}"></div>
+            <div class="form-group"><label>地名典故</label><input type="text" class="form-control" name="description"
+                                                              th:value="${attrinfo.getPlaceOrigin2()}"></div>
+            <div class="form-group"><label>行政区域名称 </label><input type="text" class="form-control" name="description"
+                                                                 th:value="${attrinfo.getAdministrativeAreaName()}"></div>
         </tr>
         </thead>
-        <tbody>
-        <tr>
-        <tr>
-            <td th:text="${attrinfo.getPlaceCode()}"></td>
-            <td th:text="${attrinfo.getStandardName()}"></td>
-            <td th:text="${attrinfo.getRomanAlphabetSpelling()}"></td>
-            <td th:text="${attrinfo.getPlaceType()}"></td>
-            <td th:text="${attrinfo.getPlaceOrigin()}"></td>
-            <td th:text="${attrinfo.getPlaceMeaning()}"></td>
-        </tr>
-        </tr>
-        </tbody>
+        <!--<tbody>-->
+        <!--<tr>-->
+        <!--<tr>-->
+            <!--<td th:text="${attrinfo.getPlaceCode()}"></td>-->
+            <!--<td th:text="${attrinfo.getStandardName()}"></td>-->
+            <!--<td th:text="${attrinfo.getRomanAlphabetSpelling()}"></td>-->
+            <!--<td th:text="${attrinfo.getPlaceType()}"></td>-->
+            <!--<td th:text="${attrinfo.getPlaceOrigin()}"></td>-->
+            <!--<td th:text="${attrinfo.getPlaceMeaning()}"></td>-->
+        <!--</tr>-->
+        <!--</tr>-->
+        <!--</tbody>-->
     </table>
 </div>
 </body>

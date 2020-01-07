@@ -16,7 +16,9 @@ public interface AttrinfoService {
 
     PageInfo<TblPlaceAttrinfoWithBLOBs> findAllData(Integer pageNo, String standardName);
 
-    TblPlaceAttrinfo findById(Integer id);
+    TblPlaceAttrinfoWithBLOBs findById(Integer id);
+
+    void update(TblPlaceAttrinfoWithBLOBs placeAttrinfoWithBLOBs);
 
 //    List<TblPlaceAttrinfoWithBLOBs> findMovieByDirector(String standardName);
 }
