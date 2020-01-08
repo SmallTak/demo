@@ -8,13 +8,17 @@ import com.mzb.dmxxk.entity.TblPlaceAttrinfoExample;
 import com.mzb.dmxxk.entity.TblPlaceAttrinfoWithBLOBs;
 import com.mzb.dmxxk.mapper.TblPlaceAttrinfoMapper;
 import com.mzb.dmxxk.service.AttrinfoService;
+import com.mzb.dmxxk.utils.EqUtil;
+import com.mzb.dmxxk.utils.OutExcelUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @description:
@@ -60,17 +64,25 @@ public class AttrinfoServiceImpl implements AttrinfoService {
     @Transactional
     @Override
     public void update(TblPlaceAttrinfoWithBLOBs placeAttrinfoWithBLOBs) {
-//        TblPlaceAttrinfoWithBLOBs tblPlaceAttrinfoWithBLOBs = attrinfoMapper.selectByPrimaryKey(Long.valueOf(placeAttrinfoWithBLOBs.getId()));
-//        if (tblPlaceAttrinfoWithBLOBs.equals(placeAttrinfoWithBLOBs)){
-//            System.out.println("数据未发送改变！");
-//        }else {
-//            System.out.println("数据发生修改");
-//            Gson gson = new Gson();
-//            System.out.println("原始数据：" + gson.toJson(tblPlaceAttrinfoWithBLOBs,TblPlaceAttrinfo.class));
-//            System.out.println("now数据：" +  gson.toJson(placeAttrinfoWithBLOBs,TblPlaceAttrinfoWithBLOBs.class));
-//
-//        }
-//        System.out.println("发生变化的数据：" + placeAttrinfoWithBLOBs.toString());
+        TblPlaceAttrinfoWithBLOBs tblPlaceAttrinfoWithBLOBs = attrinfoMapper.selectByPrimaryKey(Long.valueOf(placeAttrinfoWithBLOBs.getId()));
+        EqUtil eqUtil = new EqUtil();
+        OutExcelUtil outExcelUtil = new  OutExcelUtil();
+        Map<String, Map> eq = eqUtil.eq(tblPlaceAttrinfoWithBLOBs, placeAttrinfoWithBLOBs);
+        for (Map.Entry entry : eq.entrySet()) {
+            Map<String,String> value = (Map) entry.getValue();
+            for (Map.Entry entry1 : value.entrySet()){
+                System.out.println(entry1.getKey() + "-----> " + entry1.getValue());
+                System.out.println(entry.getKey() + ": " + entry.getValue());
+                String ID = (String) entry.getKey();
+                String field = (String) entry1.getKey();
+                String fieldValue = (String) entry1.getValue();
+                try {
+                    outExcelUtil.excel(ID, field, fieldValue);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
         attrinfoMapper.updateByPrimaryKeySelective(placeAttrinfoWithBLOBs);
     }
 

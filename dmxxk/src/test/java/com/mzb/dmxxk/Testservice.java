@@ -18,7 +18,10 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @description:
@@ -68,9 +71,22 @@ public class Testservice {
 
     }
 
-    public void jsonTest(){
-        Gson gson = new Gson();
+    @Test
+    public void jsonTest() {
+        Map<String, Map> map = new HashMap();
+        Map maps = new HashMap();
+        String str = "placeOrigin";
+        maps.put(str, "以形状命名，以形状命名。");
+        map.put("14263987", maps);
+        System.out.println(map.toString());
+        for (Map.Entry entry : map.entrySet()) {
+            Map<String,String> value = (Map) entry.getValue();
+            for (Map.Entry entry1 : value.entrySet()){
+                System.out.println(entry1.getKey() + "-----> " + entry1.getValue());
+            }
 
+            System.out.println(entry.getKey() + ": " + entry.getValue());
+            entry.getKey();
+        }
     }
-
 }
