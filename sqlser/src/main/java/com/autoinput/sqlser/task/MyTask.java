@@ -23,7 +23,7 @@ public class MyTask {
 
     @Scheduled(cron = "0 0/10 * * * ?")
     public void reportCurrentTime() throws ParseException {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("YYYY-MM-DD");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         System.out.println(simpleDateFormat.format(new Date()));
         System.out.println("开始执行任务---------------------------->");
         String ak = "PLu1mKO7CIniVy1kXqWaNOp6wbp2EN58";
