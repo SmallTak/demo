@@ -2,11 +2,10 @@ package com.autoinput.sqlser.service.impl;
 
 import com.alibaba.fastjson.JSONObject;
 import com.autoinput.sqlser.entity.VisitorRecord;
+import com.autoinput.sqlser.service.InsertLogService;
 import com.autoinput.sqlser.mapper.VisitorRecordMapper;
 import com.autoinput.sqlser.utils.GetObject;
-import com.autoinput.sqlser.utils.JsonHttpService;
 import com.autoinput.sqlser.utils.RandomIp;
-import javafx.scene.media.VideoTrack;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -30,7 +29,6 @@ public class InsertLogServiceImpl implements InsertLogService {
     @Autowired
     private VisitorRecordMapper visitorRecordMapper;
 
-
     @Override
     public void inserLog(String ak) throws IOException {
         List list = new ArrayList();
@@ -45,11 +43,11 @@ public class InsertLogServiceImpl implements InsertLogService {
         list.add(8, "http://dmfw.mca.gov.cn/service.html?subject=2");
         list.add(9, "http://dmfw.mca.gov.cn/service.html?subject=3");
 
-
+        //获得随机ip地址
         String randomIp = RandomIp.getRandomIp();
         String url = "http://api.map.baidu.com/location/ip?ak=" + AK + "&ip=" + randomIp + "&coor=bd09ll%20//HTTP";
         System.out.println(url);
-        System.out.println(randomIp);
+        //将请求返回的数据转为json
         GetObject getObject = new GetObject();
         JSONObject p = getObject.getP(url);
         JSONObject obj = (JSONObject) ((JSONObject) p.get("content")).get("address_detail");
@@ -57,6 +55,7 @@ public class InsertLogServiceImpl implements InsertLogService {
         JSONObject object = (JSONObject) ((JSONObject) p.get("content")).get("address_detail");
         String city = object.getString("city");
         System.out.println(province + city);
+
         VisitorRecord visitorRecord = new VisitorRecord();
         visitorRecord.setIp(randomIp);
         visitorRecord.setCountry("中国");
@@ -64,7 +63,7 @@ public class InsertLogServiceImpl implements InsertLogService {
         visitorRecord.setCity(city);
         visitorRecord.setUserId(0);
         String str = (String) list.get(new Random().nextInt(list.size()));
-
+        //判断随机获得的url长度，若长度为45则截取字符串set值
         if (str.length() == 45) {
             String sub = str.substring(36);
             visitorRecord.setReferer(str.substring(0, 35));
@@ -72,9 +71,8 @@ public class InsertLogServiceImpl implements InsertLogService {
             visitorRecordMapper.insertSelective(visitorRecord);
         } else {
             visitorRecord.setReferer(str);
+
             visitorRecordMapper.insertSelective(visitorRecord);
         }
-
-
     }
 }

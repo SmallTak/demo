@@ -1,4 +1,4 @@
-package com.autoinput.sqlser.service.impl;
+package com.autoinput.sqlser.service;
 
 import java.io.IOException;
 
