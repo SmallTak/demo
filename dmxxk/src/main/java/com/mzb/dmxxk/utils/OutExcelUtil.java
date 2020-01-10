@@ -8,6 +8,8 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.poifs.filesystem.POIFSFileSystem;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 
 /**
@@ -35,6 +37,7 @@ public class OutExcelUtil {
         row.createCell(0).setCellValue(id); //设置第一个（从0开始）单元格的数据
         row.createCell(1).setCellValue(field);
         row.createCell(2).setCellValue(fieldValue);
+        row.createCell(3).setCellValue(new SimpleDateFormat("yyyy/MM/DD").format(new Date()));
 
         out.flush();
         Workbook.write(out);

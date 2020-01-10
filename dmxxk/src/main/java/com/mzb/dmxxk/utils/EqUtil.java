@@ -14,14 +14,27 @@ import java.util.Map;
  */
 public class EqUtil {
 
-    public Map<String,Map> eq(TblPlaceAttrinfoWithBLOBs originData,TblPlaceAttrinfoWithBLOBs nowData){
+    public Map<String, Map> eq(TblPlaceAttrinfoWithBLOBs originData, TblPlaceAttrinfoWithBLOBs nowData) {
 
-        Map<String,Map> map = new HashMap();
+        Map<String, Map> map = new HashMap();
         Map maps = new HashMap();
-        if (!originData.getPlaceOrigin().equals(nowData.getPlaceOrigin())){
+        if (!originData.getPlaceOrigin().equals(nowData.getPlaceOrigin())) {
             String str = "placeOrigin";
-            maps.put(str,nowData.getPlaceOrigin());
-            map.put(String.valueOf(nowData.getId()),maps);
+            System.out.println(originData.getPlaceOrigin());
+            maps.put(str, nowData.getPlaceOrigin());
+            map.put(String.valueOf(nowData.getId()), maps);
+        }
+        if (!originData.getPlaceMeaning().equals(nowData.getPlaceMeaning())) {
+            String str = "placeMeaning";
+            System.out.println(originData.getPlaceMeaning());
+            maps.put(str, nowData.getPlaceMeaning());
+            map.put(String.valueOf(nowData.getId()), maps);
+        }
+        if (!originData.getPlaceHistory().equals(nowData.getPlaceHistory())) {
+            String str = "placeMeaning";
+            System.out.println(originData.getPlaceHistory());
+            maps.put(str, nowData.getPlaceHistory());
+            map.put(String.valueOf(nowData.getId()), maps);
         }
         return map;
     }
