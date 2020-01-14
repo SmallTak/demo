@@ -11,16 +11,10 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
 
 @SpringBootApplication
 @ComponentScan(basePackages = "com.mzb.dmxxk")
-public class DmxxkApplication extends WebMvcConfigurationSupport {
+public class DmxxkApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(DmxxkApplication.class, args);
-	}
-
-	@Override
-	protected void addResourceHandlers(ResourceHandlerRegistry resourceHandlerRegistry){
-		resourceHandlerRegistry.addResourceHandler("/**").addResourceLocations(ResourceUtils.CLASSPATH_URL_PREFIX + "/templates/");
-		resourceHandlerRegistry.addResourceHandler("/**").addResourceLocations(ResourceUtils.CLASSPATH_URL_PREFIX + "/static/");
 	}
 
 }

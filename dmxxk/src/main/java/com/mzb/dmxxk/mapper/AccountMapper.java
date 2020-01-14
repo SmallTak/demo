@@ -3,8 +3,11 @@ package com.mzb.dmxxk.mapper;
 import com.mzb.dmxxk.entity.Account;
 import com.mzb.dmxxk.entity.AccountExample;
 import java.util.List;
+
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+@Mapper
 public interface AccountMapper {
     long countByExample(AccountExample example);
 
@@ -27,4 +30,6 @@ public interface AccountMapper {
     int updateByPrimaryKeySelective(Account record);
 
     int updateByPrimaryKey(Account record);
+
+    Account findByMobile(String mobile);
 }

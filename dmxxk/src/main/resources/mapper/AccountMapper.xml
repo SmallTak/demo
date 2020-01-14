@@ -141,6 +141,11 @@
       <include refid="Example_Where_Clause" />
     </if>
   </select>
+
+  <select id="findByMobile" resultType="com.mzb.dmxxk.entity.Account">
+    SELECT * from account WHERE mobile = #{mobile}
+  </select>
+
   <update id="updateByExampleSelective" parameterType="map">
     update mca10..account
     <set>
