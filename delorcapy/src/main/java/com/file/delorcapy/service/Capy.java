@@ -13,17 +13,17 @@ import java.io.*;
 @Component
 public class Capy {
 
-    public void test() throws IOException {
+    public void test(String sourcePath, String tarPath) throws IOException {
 
-        String sourceDirname = "E:\0二普多媒体照片打码处理后数据\31上海";
-        String copyDirname = "D:\0二普多媒体照片打码处理后数据\31上海";
-        File sf = new File(sourceDirname);
-        File cf = new File(copyDirname);
+//        String sourceDirname = "E:\0二普多媒体照片打码处理后数据\31上海";
+//        String copyDirname = "D:\0二普多媒体照片打码处理后数据\31上海";
+        File sf = new File(sourcePath);
+        File cf = new File(tarPath);
         if (!cf.exists()) {
             cf.mkdir();
         }
         copyDir(sf, cf);
-        System.out.println("CAPY" + sourceDirname + "SUCCESS");
+        System.out.println("CAPY" + sourcePath + "SUCCESS");
     }
 
     private void copyDir(File sf, File tf) throws IOException {

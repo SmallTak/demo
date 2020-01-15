@@ -15,9 +15,9 @@ public class ClearFile {
 
     static int iFile = 0;
 
-    public void clear() {
+    public void clear(String dir_str) {
         // dir_str清理文件夹的路径
-        String dir_str = "D:\0二普多媒体照片打码处理后数据\31上海";
+        //String dir_str = "D:\0二普多媒体照片打码处理后数据\31上海";
         File dir = new File( dir_str );
         clear( dir );
         System.out.println( "清理成功。" );

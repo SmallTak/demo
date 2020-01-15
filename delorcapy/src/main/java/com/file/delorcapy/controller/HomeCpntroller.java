@@ -4,8 +4,7 @@ import com.file.delorcapy.service.Capy;
 import com.file.delorcapy.service.ClearFile;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 
@@ -15,6 +14,7 @@ import java.io.IOException;
  * @date: 2020-01-14 15:41
  */
 @Controller
+@RequestMapping("/capy")
 public class HomeCpntroller {
 
     @Autowired
@@ -24,15 +24,20 @@ public class HomeCpntroller {
     private ClearFile clearFile;
 
     @GetMapping
-    @ResponseBody
     public String home() throws IOException {
-         capy.test();
-        return "success";
+
+        return "/home";
     }
-    @GetMapping("/clear")
+
+    @GetMapping("/capyfile")
     @ResponseBody
-    public String clear() throws IOException {
-        clearFile.clear();
-        return "clear success";
+    public String capy(@RequestParam(required = true, name = "sourcePath") String sourcePath, @RequestParam(required = true, name = "tarPath") String tarPath){
+        try {
+            System.out.println(sourcePath+tarPath);
+            capy.test(sourcePath,tarPath);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return "success";
     }
 }
